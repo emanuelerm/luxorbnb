@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('visits', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('ip_address', 16 );
-            $table->unsignedBigInteger('property_id');
-            $table->foreign('property_id')->references('id')->on('properties')->cascadeOnDelete();
+            $table->foreignId('property_id');
+            $table->foreign('property_id')->references('id')->on('properties');
             $table->timestamps();
         });
     }
