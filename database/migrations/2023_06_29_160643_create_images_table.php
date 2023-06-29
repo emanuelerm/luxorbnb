@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->foreignId('property_id');
             $table->foreign('property_id')->references('id')->on('properties');
-            $table->string('path');
+            $table->text('path');
             $table->timestamps();
         });
     }
