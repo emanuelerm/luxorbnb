@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('property_id');
             $table->foreign('property_id')->references('id')->on('properties');
-            $table->string('image_url');
+            $table->string('path');
             $table->timestamps();
         });
     }
