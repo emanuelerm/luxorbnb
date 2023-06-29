@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreign('property_id')->references('id')->on('properties')->nullOnDelete();
+            $table->foreign('property_id')->references('id')->on('properties');
             $table->string('title', 100);
             $table->text('message');
             $table->string('email', 50);
