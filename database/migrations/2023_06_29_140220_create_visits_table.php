@@ -14,7 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('visits', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('ip_address', 16 );
+            $table->unsignedBigInteger('property_id');
+            $table->foreign('property_id')->references('id')->on('properties')->cascadeOnDelete();
             $table->timestamps();
         });
     }
