@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreign('property_id')->references('id')->on('properties')->cascadeOnDelete();
 
             $table->dateTime('started_at');
-            $table->dateTime('started_at');
+            $table->dateTime('finished_at');
             $table->boolean('expired');
         });
     }
