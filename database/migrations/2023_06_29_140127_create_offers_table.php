@@ -14,7 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('offers', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('name', 20);
+            $table->decimal('price', 5, 2);
+            $table->tinyInteger('duration');
             $table->timestamps();
         });
     }

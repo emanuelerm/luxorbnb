@@ -14,7 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->foreign('property_id')->references('id')->on('properties')->nullOnDelete();
+            $table->string('title', 100);
+            $table->text('message');
+            $table->string('email', 50);
             $table->timestamps();
         });
     }
