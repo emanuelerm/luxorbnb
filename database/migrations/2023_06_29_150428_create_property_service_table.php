@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('visits', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('ip_address', 16 );
-            $table->foreignId('property_id');
-            $table->foreign('property_id')->references('id')->on('properties');
+        Schema::create('property_service', function (Blueprint $table) {
+            $table->id();
+            $table->foreignid('property_id');
+            $table->foreign('property_id')->references('id')->on('properties')->cascadeOnDelete();
+            $table->foreignid('service_id');
+            $table->foreign('service_id')->references('id')->on('services')->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('visits');
+        Schema::dropIfExists('property_service');
     }
 };
