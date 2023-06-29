@@ -14,7 +14,19 @@ return new class extends Migration
     public function up()
     {
         Schema::create('properties', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('title');
+            $table->text('description');
+            $table->tinyInteger('rooms');
+            $table->tinyInteger('beds');
+            $table->tinyInteger('bathrooms');
+            $table->mediumInteger('square_meters');
+            $table->string('address');
+            $table->decimal('latitude', 9, 6);
+            $table->decimal('longitude', 9, 6);
+            $table->boolean('visible');
             $table->timestamps();
         });
     }
