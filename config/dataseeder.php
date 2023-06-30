@@ -36,7 +36,7 @@ return [
 
     ],
 
-    $offer = [
+    'offers' => [
         "name" => "bronze",
         "duration" => 24,
         "price" => 2.99,
