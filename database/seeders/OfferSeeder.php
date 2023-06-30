@@ -14,6 +14,6 @@ class OfferSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $offers = 
     }
 }
