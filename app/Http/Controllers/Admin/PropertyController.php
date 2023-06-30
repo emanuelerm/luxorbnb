@@ -30,7 +30,7 @@ class PropertyController extends Controller
     public function create()
     {
         $service = Service::all();
-        return view('admin.properties.create', compact('services'))
+        return view('admin.properties.create', compact('services'));
     }
 
     /**
