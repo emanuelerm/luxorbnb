@@ -145,7 +145,7 @@
 			{{-- //SERVICE IMPUT --}}
 
 			<input type="submit" value="submit">
-			<input type="reset" value="reeset" class="btn btn-danger">
+			<input type="reset" value="reset" class="btn btn-danger">
 		</form>
 	</div>
 @endsection
