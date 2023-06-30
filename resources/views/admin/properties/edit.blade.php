@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container">
-        <form action="{{ route('properties.update', $property->id) }}" method="POST">
+        <form action="{{ route('admin.properties.update', $property->id) }}" method="POST">
             @csrf
             @method('PUT')
 
