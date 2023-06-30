@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Property;
 use App\Models\Service;
@@ -19,7 +20,8 @@ class PropertyController extends Controller
     public function index()
     {
         $properties = Property::all();
-        return view('admin.properties.index', compact('properties'));
+        $user = Auth::user();
+        return view('admin.properties.index', compact('properties', 'user'));
     }
 
     /**
@@ -27,10 +29,10 @@ class PropertyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Service $service)
     {
         $service = Service::all();
-        return view('admin.properties.create', compact('services'));
+        return view('admin.properties.create', compact('service'));
     }
 
     /**
@@ -41,7 +43,14 @@ class PropertyController extends Controller
      */
     public function store(StorePropertyRequest $request)
     {
-        //
+        $user = Auth::user();
+        $form_data = $request->validated();
+        //$form_data = $this->validated($request->all());
+        $newProperty = new Property();
+        $newProperty->user_id = $user->id;
+        $newProperty->fill($form_data);
+        $newProperty->save();
+        return redirect()->route('admin.properties.index');
     }
 
     /**

@@ -8,6 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'title',
+        'description',
+        'rooms',
+        'beds',
+        'bathrooms',
+        'square_meters',
+        'address',
+        'latitude',
+        'longitude',
+        'visible'
+    ];
 
     public function visits()
     {
