@@ -86,7 +86,9 @@ class PropertyController extends Controller
      */
     public function update(UpdatePropertyRequest $request, Property $property)
     {
-        //
+        $form_data = $this->validation($request->all());
+        $property->update($form_data);
+        return redirect()->route('admin.properties.show', $property->id);
     }
 
     /**
