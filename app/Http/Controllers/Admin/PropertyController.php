@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Message;
-use App\Http\Requests\StoreMessageRequest;
-use App\Http\Requests\UpdateMessageRequest;
+use App\Http\Controllers\Controller;
+use App\Models\Property;
+use App\Http\Requests\StorePropertyRequest;
+use App\Http\Requests\UpdatePropertyRequest;
 
-class MessageController extends Controller
+class PropertyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +32,10 @@ class MessageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreMessageRequest  $request
+     * @param  \App\Http\Requests\StorePropertyRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMessageRequest $request)
+    public function store(StorePropertyRequest $request)
     {
         //
     }
@@ -42,10 +43,10 @@ class MessageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Message  $message
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function show(Message $message)
+    public function show(Property $property)
     {
         //
     }
@@ -53,10 +54,10 @@ class MessageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Message  $message
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function edit(Message $message)
+    public function edit(Property $property)
     {
         //
     }
@@ -64,11 +65,11 @@ class MessageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateMessageRequest  $request
-     * @param  \App\Models\Message  $message
+     * @param  \App\Http\Requests\UpdatePropertyRequest  $request
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMessageRequest $request, Message $message)
+    public function update(UpdatePropertyRequest $request, Property $property)
     {
         //
     }
@@ -76,10 +77,10 @@ class MessageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Message  $message
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy(Property $property)
     {
         //
     }

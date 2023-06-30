@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Property;
-use App\Http\Requests\StorePropertyRequest;
-use App\Http\Requests\UpdatePropertyRequest;
+use App\Http\Controllers\Controller;
+use App\Models\Visit;
+use App\Http\Requests\StoreVisitRequest;
+use App\Http\Requests\UpdateVisitRequest;
 
-class PropertyController extends Controller
+class VisitController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +32,10 @@ class PropertyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePropertyRequest  $request
+     * @param  \App\Http\Requests\StoreVisitRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePropertyRequest $request)
+    public function store(StoreVisitRequest $request)
     {
         //
     }
@@ -42,10 +43,10 @@ class PropertyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Property  $property
+     * @param  \App\Models\Visit  $visit
      * @return \Illuminate\Http\Response
      */
-    public function show(Property $property)
+    public function show(Visit $visit)
     {
         //
     }
@@ -53,10 +54,10 @@ class PropertyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Property  $property
+     * @param  \App\Models\Visit  $visit
      * @return \Illuminate\Http\Response
      */
-    public function edit(Property $property)
+    public function edit(Visit $visit)
     {
         //
     }
@@ -64,11 +65,11 @@ class PropertyController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePropertyRequest  $request
-     * @param  \App\Models\Property  $property
+     * @param  \App\Http\Requests\UpdateVisitRequest  $request
+     * @param  \App\Models\Visit  $visit
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePropertyRequest $request, Property $property)
+    public function update(UpdateVisitRequest $request, Visit $visit)
     {
         //
     }
@@ -76,10 +77,10 @@ class PropertyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Property  $property
+     * @param  \App\Models\Visit  $visit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Property $property)
+    public function destroy(Visit $visit)
     {
         //
     }

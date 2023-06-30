@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Image;
-use App\Http\Requests\StoreImageRequest;
-use App\Http\Requests\UpdateImageRequest;
+use App\Http\Controllers\Controller;
+use App\Models\Message;
+use App\Http\Requests\StoreMessageRequest;
+use App\Http\Requests\UpdateMessageRequest;
 
-class ImageController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +32,10 @@ class ImageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreImageRequest  $request
+     * @param  \App\Http\Requests\StoreMessageRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreImageRequest $request)
+    public function store(StoreMessageRequest $request)
     {
         //
     }
@@ -42,10 +43,10 @@ class ImageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Image  $image
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(Image $image)
+    public function show(Message $message)
     {
         //
     }
@@ -53,10 +54,10 @@ class ImageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Image  $image
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function edit(Image $image)
+    public function edit(Message $message)
     {
         //
     }
@@ -64,11 +65,11 @@ class ImageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateImageRequest  $request
-     * @param  \App\Models\Image  $image
+     * @param  \App\Http\Requests\UpdateMessageRequest  $request
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateImageRequest $request, Image $image)
+    public function update(UpdateMessageRequest $request, Message $message)
     {
         //
     }
@@ -76,10 +77,10 @@ class ImageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Image  $image
+     * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Image $image)
+    public function destroy(Message $message)
     {
         //
     }

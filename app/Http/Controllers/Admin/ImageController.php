@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Visit;
-use App\Http\Requests\StoreVisitRequest;
-use App\Http\Requests\UpdateVisitRequest;
+use App\Http\Controllers\Controller;
+use App\Models\Image;
+use App\Http\Requests\StoreImageRequest;
+use App\Http\Requests\UpdateImageRequest;
 
-class VisitController extends Controller
+class ImageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +32,10 @@ class VisitController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreVisitRequest  $request
+     * @param  \App\Http\Requests\StoreImageRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreVisitRequest $request)
+    public function store(StoreImageRequest $request)
     {
         //
     }
@@ -42,10 +43,10 @@ class VisitController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Visit  $visit
+     * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function show(Visit $visit)
+    public function show(Image $image)
     {
         //
     }
@@ -53,10 +54,10 @@ class VisitController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Visit  $visit
+     * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function edit(Visit $visit)
+    public function edit(Image $image)
     {
         //
     }
@@ -64,11 +65,11 @@ class VisitController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateVisitRequest  $request
-     * @param  \App\Models\Visit  $visit
+     * @param  \App\Http\Requests\UpdateImageRequest  $request
+     * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateVisitRequest $request, Visit $visit)
+    public function update(UpdateImageRequest $request, Image $image)
     {
         //
     }
@@ -76,10 +77,10 @@ class VisitController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Visit  $visit
+     * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Visit $visit)
+    public function destroy(Image $image)
     {
         //
     }

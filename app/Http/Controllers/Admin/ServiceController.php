@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Offer;
-use App\Http\Requests\StoreOfferRequest;
-use App\Http\Requests\UpdateOfferRequest;
+use App\Http\Controllers\Controller;
+use App\Models\Service;
+use App\Http\Requests\StoreServiceRequest;
+use App\Http\Requests\UpdateServiceRequest;
 
-class OfferController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +32,10 @@ class OfferController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreOfferRequest  $request
+     * @param  \App\Http\Requests\StoreServiceRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreOfferRequest $request)
+    public function store(StoreServiceRequest $request)
     {
         //
     }
@@ -42,10 +43,10 @@ class OfferController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Offer  $offer
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function show(Offer $offer)
+    public function show(Service $service)
     {
         //
     }
@@ -53,10 +54,10 @@ class OfferController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Offer  $offer
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Offer $offer)
+    public function edit(Service $service)
     {
         //
     }
@@ -64,11 +65,11 @@ class OfferController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateOfferRequest  $request
-     * @param  \App\Models\Offer  $offer
+     * @param  \App\Http\Requests\UpdateServiceRequest  $request
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOfferRequest $request, Offer $offer)
+    public function update(UpdateServiceRequest $request, Service $service)
     {
         //
     }
@@ -76,10 +77,10 @@ class OfferController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Offer  $offer
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Offer $offer)
+    public function destroy(Service $service)
     {
         //
     }
