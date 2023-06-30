@@ -38,6 +38,12 @@
                             <a href="{{ route('admin.properties.show', ['property' => $property->id]) }}">
                                 <i class="fa-regular fa-eye me-2"></i>
                             </a>
+
+                            <form action="{{ route('admin.properties.destroy', $property->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Delete</button>
+                            </form>
                         </td>
                     </tr>
                     @endif

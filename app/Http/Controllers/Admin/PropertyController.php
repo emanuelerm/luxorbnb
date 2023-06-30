@@ -103,6 +103,7 @@ class PropertyController extends Controller
      */
     public function destroy(Property $property)
     {
-        //
+        $property->delete();
+        return redirect()->route('admin.properties.index')->with('message', "{$property->title} è stato cancellato correttamente");
     }
 }
