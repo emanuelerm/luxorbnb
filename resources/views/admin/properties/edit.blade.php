@@ -13,10 +13,6 @@
 @endif
 <form action="{{ route('admin.properties.update', $property->id) }}" method="POST">
     <div class="container">
-<<<<<<< HEAD
-        <form action="{{ route('admin.profile.update', $property->id) }}" method="POST">
-=======
->>>>>>> c34d67121877751a405f15d93fbc6eb6da2bb163
             @csrf
             @method('PUT')
 
@@ -74,11 +70,6 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Update</button>
-<<<<<<< HEAD
-        </form>
-    </div>
-=======
         </div>
     </form>
->>>>>>> c34d67121877751a405f15d93fbc6eb6da2bb163
 @endsection
