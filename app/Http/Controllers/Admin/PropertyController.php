@@ -73,6 +73,9 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
+        // if (!Auth::user()->is_admin && $property->user_id !== Auth::id()) {
+        //     abort(403);
+        // }
         $services = Service::all();
         return view('admin.properties.edit', compact('property', 'services'));
     }
@@ -86,7 +89,7 @@ class PropertyController extends Controller
      */
     public function update(UpdatePropertyRequest $request, Property $property)
     {
-        $form_data = $this->validation($request->all());
+        $form_data = $request->validated();
         $property->update($form_data);
         return redirect()->route('admin.properties.show', $property->id);
     }

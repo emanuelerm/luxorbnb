@@ -2,8 +2,17 @@
 @extends('layouts.app')
 
 @section('content')
+@if($errors->any())
+                <div class="alert alert-danger" role="alert">
+                 <ul>
+            @foreach($errors->all() as $error)
+              <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<form action="{{ route('admin.properties.update', $property->id) }}" method="POST">
     <div class="container">
-        <form action="{{ route('admin.properties.update', $property->id) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -42,7 +51,7 @@
                 <input type="text" name="address" id="address" class="form-control" value="{{ $property->address }}" required>
             </div>
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="latitude">Latitude</label>
                 <input type="number" name="latitude" id="latitude" class="form-control" step="0.000001" value="{{ $property->latitude }}" required>
             </div>
@@ -50,17 +59,17 @@
             <div class="form-group">
                 <label for="longitude">Longitude</label>
                 <input type="number" name="longitude" id="longitude" class="form-control" step="0.000001" value="{{ $property->longitude }}" required>
-            </div>
+            </div> --}}
 
             <div class="form-group">
                 <label for="visible">Visible</label>
-                <select name="visible" id="visible" class="form-control" required>
+                <select name="visible" id="visible" class="form-control">
                     <option value="1" {{ $property->visible ? 'selected' : '' }}>Yes</option>
                     <option value="0" {{ !$property->visible ? 'selected' : '' }}>No</option>
                 </select>
             </div>
 
             <button type="submit" class="btn btn-primary">Update</button>
-        </form>
-    </div>
+        </div>
+    </form>
 @endsection
