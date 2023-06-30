@@ -2,6 +2,7 @@
 @section('content')
 <div class="container">
     <h1 class="text-center mb-5">Properties</h1>
+    <a href="{{ route('admin.properties.create') }}" class="btn btn-primary mb-4">Inserisci una nuova proprietà</a>
     <table class="table table-info table-hover">
         <thead>
             <tr>
@@ -34,9 +35,12 @@
                         <td>{{ $property->address }}</td>
                         <td>{{ $property->latitude }}</td>
                         <td>{{ $property->longitude }}</td>
-                        <td>
+                        <td style="width: 80px">
                             <a href="{{ route('admin.properties.show', ['property' => $property->id]) }}">
                                 <i class="fa-regular fa-eye me-2"></i>
+                            </a>
+                            <a href="{{ route('admin.properties.edit', $property->id) }}">
+                                <i class="fa-regular fa-pen-to-square me-2"></i>
                             </a>
                         </td>
                     </tr>
