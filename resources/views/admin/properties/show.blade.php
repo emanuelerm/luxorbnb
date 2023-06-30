@@ -3,8 +3,8 @@
 @section('content')
     <div class="container">
         <div class="card mx-auto mt-5" style="width: 20rem">
-            @if ($image)
-                 <img src="{{ $image->path }}" alt="Immagine proprietà">
+            @if ($property->image)
+                 <img src="{{ asset($property->image->path) }}" alt="Immagine proprietà">
             @else
                 <p>Nessuna immagine disponibile</p>
             @endif
