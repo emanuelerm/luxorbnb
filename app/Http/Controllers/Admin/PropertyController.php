@@ -49,7 +49,7 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-        //
+        return view('admin.properties.show', compact('property'));
     }
 
     /**
