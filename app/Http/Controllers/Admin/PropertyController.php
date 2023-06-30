@@ -7,7 +7,7 @@ use App\Models\Property;
 use App\Models\Service;
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
-
+use PHPUnit\Framework\MockObject\ReturnValueNotConfiguredException;
 
 class PropertyController extends Controller
 {
@@ -29,7 +29,8 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        //
+        $service = Service::all();
+        return view('admin.properties.create', compact('services'))
     }
 
     /**
