@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Property;
+use App\Models\Service;
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
+use PHPUnit\Framework\MockObject\ReturnValueNotConfiguredException;
 
 class PropertyController extends Controller
 {
@@ -16,7 +18,8 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        //
+        $properties = Property::all();
+        return view('admin.properties.index', compact('properties'));
     }
 
     /**
@@ -26,7 +29,8 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        //
+        $service = Service::all();
+        return view('admin.properties.create', compact('services'))
     }
 
     /**
@@ -48,7 +52,7 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-        //
+        return view('admin.properties.show', compact('property'));
     }
 
     /**
@@ -59,7 +63,8 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
-        //
+        $services = Service::all();
+        return view('admin.properties.edit', compact('property', 'services'));
     }
 
     /**
