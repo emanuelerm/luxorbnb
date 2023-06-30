@@ -1,27 +1,28 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
-        <h1 class="text-center mb-5">Properties</h1>
-        <table class="table table-info table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">User_id</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Rooms</th>
-                    <th scope="col">Beds</th>
-                    <th scope="col">Bathrooms</th>
-                    <th scope="col">Square meters</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Latitude</th>
-                    <th scope="col">Longitude</th>
-                    <th scope="col">Link</a></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($properties as $property)
-                    <tr>
+<div class="container">
+    <h1 class="text-center mb-5">Properties</h1>
+    <table class="table table-info table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">User_id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Rooms</th>
+                <th scope="col">Beds</th>
+                <th scope="col">Bathrooms</th>
+                <th scope="col">Square meters</th>
+                <th scope="col">Address</th>
+                <th scope="col">Latitude</th>
+                <th scope="col">Longitude</th>
+                <th scope="col">Link</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($properties as $property)
+            @if($property->user_id == $user->id)
+            <tr>
                         <th scope="row">{{ $property->id }}</th>
                         <td>{{ $property->user_id }}</td>
                         <td>{{ $property->title }}</td>
@@ -39,6 +40,7 @@
                             </a>
                         </td>
                     </tr>
+                    @endif
                 @endforeach
             </tbody>
         </table>

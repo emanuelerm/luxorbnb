@@ -24,9 +24,9 @@ return new class extends Migration
             $table->tinyInteger('bathrooms');
             $table->mediumInteger('square_meters');
             $table->string('address');
-            $table->decimal('latitude', 9, 6);
-            $table->decimal('longitude', 9, 6);
-            $table->boolean('visible');
+            $table->decimal('latitude', 9, 6)->nullable(true);
+            $table->decimal('longitude', 9, 6)->nullable(true);
+            $table->boolean('visible')->nullable(true);
             $table->timestamps();
         });
     }
