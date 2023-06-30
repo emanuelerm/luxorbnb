@@ -37,11 +37,13 @@ return [
     ],
 
     'offers' => [
+        [
         "name" => "bronze",
         "duration" => 24,
         "price" => 2.99,
         "start_date" => "2023-06-28 12:00:00",
         "end_date" => "2023-06-29 12:00:00",
+        ]
     ],
 ];
 

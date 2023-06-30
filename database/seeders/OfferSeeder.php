@@ -20,8 +20,9 @@ class OfferSeeder extends Seeder
         foreach($offers as $offer) {
             $newOffer = new Offer();
             $newOffer->name = $offer['name'];
-            $newOffer->duration = $offer['duration'];
             $newOffer->price = $offer['price'];
+            $newOffer->duration = $offer['duration'];
+            $newOffer->save();
         }
     }
 }
