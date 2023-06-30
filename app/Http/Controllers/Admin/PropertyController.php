@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Property;
+use App\Models\Service;
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
+
 
 class PropertyController extends Controller
 {
@@ -60,7 +62,8 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
-        //
+        $services = Service::all();
+        return view('admin.properties.edit', compact('property', 'services'));
     }
 
     /**
