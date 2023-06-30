@@ -1,13 +1,13 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
         <div class="card mx-auto mt-5" style="width: 20rem">
-            @if ($image)
+            {{-- @if ($image)
                  <img src="{{ $image->path }}" alt="Immagine proprietà">
             @else
                 <p>Nessuna immagine disponibile</p>
-            @endif
+            @endif --}}
             <div class="card-body">
                 <h5 class="card-title">{{ $property->title }}</h5>
                 <p class="card-text">{{ $property->description }}</p>
