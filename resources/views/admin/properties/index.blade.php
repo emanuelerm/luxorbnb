@@ -43,7 +43,9 @@
                             <form action="{{ route('admin.properties.destroy', $property->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit">Delete</button>
+                                <button type='submit' class="delete-button btn btn-danger text-white"
+                                 data-item-title="{{ $property->name }}"> <i class="fa-solid fa-trash"></i>
+                                </button>
                             </form>
                         </td>
                     </tr>
@@ -52,4 +54,5 @@
             </tbody>
         </table>
     </div>
+    @include('partials.modal-delete')
 @endsection

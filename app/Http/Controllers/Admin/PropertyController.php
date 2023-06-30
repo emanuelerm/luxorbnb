@@ -61,6 +61,7 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
+
         $services = Service::all();
         return view('admin.properties.show', compact('property', 'services'));
     }
