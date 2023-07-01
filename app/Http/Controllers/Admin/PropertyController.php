@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Property;
 use App\Models\Service;
 use App\Models\Image;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
 use PHPUnit\Framework\MockObject\ReturnValueNotConfiguredException;
@@ -54,6 +55,10 @@ class PropertyController extends Controller
         if ($request->has('services')) {
             $newProperty->services()->sync($request->services);
         }
+        // if ($request->hasFile('image')) {
+        //     $image_path = Storage::put('uploads', $request->image);
+        //     $data['image'] = asset('storage/' . $image_path);
+        // }
         return redirect()->route('admin.properties.index');
     }
 
