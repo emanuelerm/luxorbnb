@@ -92,11 +92,21 @@ class PropertyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdatePropertyRequest $request, Property $property)
-    {
-        $form_data = $request->validated();
-        $property->update($form_data);
-        return redirect()->route('admin.properties.show', $property->id);
+{
+    $user = Auth::user();
+    $form_data = $request->validated();
+
+    // Aggiornare i dati della proprietà esistente invece di creare una nuova proprietà
+    $property->user_id = $user->id;
+    $property->fill($form_data);
+    $property->save();
+
+    if ($request->has('services')) {
+        $property->services()->sync($request->services);
     }
+
+    return redirect()->route('admin.properties.index')->with('message', "{$property->title} è stato aggiornato correttamente");
+}
 
     /**
      * Remove the specified resource from storage.

@@ -51,6 +51,29 @@
                 <input type="text" name="address" id="address" class="form-control" value="{{ $property->address }}" required>
             </div>
 
+            <div class="form-group">
+                <p>Seleziona i Servizi:</p>
+                <div class="d-flex flex-wrap align-items-center w-100 py-4">
+
+                    @foreach ($services as $service)
+                        <div>
+                            @if ($errors->any())
+                                <input type="checkbox" name="services[]" value="{{ $service->id }}" class="form-check-input"
+                                    {{ in_array($service->id, old('service', [])) ? 'checked' : '' }}>
+                            @else
+                                <input type="checkbox" name="services[]" value="{{ $service->id }}" class="form-check-input"
+                                    {{ $property->services->contains($service) ? 'checked' : '' }}>
+                            @endif
+
+                            <label for="" class="form-check-label">{{ $service->name }}</label>
+                        </div>
+                    @endforeach
+                </div>
+                @error('services')
+                    <div class="invalid-feedback">{{ $message }}
+                    </div>
+                @enderror
+            </div>
             {{-- <div class="form-group">
                 <label for="latitude">Latitude</label>
                 <input type="number" name="latitude" id="latitude" class="form-control" step="0.000001" value="{{ $property->latitude }}" required>
