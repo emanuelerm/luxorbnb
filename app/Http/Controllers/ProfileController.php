@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,13 +36,13 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('admin.profile.edit')->with('status', 'profile-updated');
     }
 
     /**
      * Delete the user's account.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request, User $user): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current-password'],
@@ -50,7 +51,8 @@ class ProfileController extends Controller
         $user = $request->user();
 
         Auth::logout();
-
+        // $user = User::findOrFail();
+        $user->properties()->delete();
         $user->delete();
 
         $request->session()->invalidate();

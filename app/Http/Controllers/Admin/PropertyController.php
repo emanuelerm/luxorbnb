@@ -50,6 +50,9 @@ class PropertyController extends Controller
         $newProperty->user_id = $user->id;
         $newProperty->fill($form_data);
         $newProperty->save();
+        if ($request->has('services')) {
+            $newProperty->services()->sync($request->services);
+        }
         return redirect()->route('admin.properties.index');
     }
 

@@ -138,8 +138,11 @@
 			{{-- SERVICES IMPUT --}}
 			<div>
 				@foreach ($service as $service)
-					<input type="checkbox" name="service_item" id="">
-					<span>{{ $service->name }}</span>
+                <div>
+                    <input type="checkbox" name="services[]" value="{{ $service->id }}" class="form-check-input"
+                        {{ in_array($service->id, old('service', [])) ? 'checked' : '' }}>
+                    <label for="" class="form-check-label">{{ $service->name }}</label>
+                </div>
 				@endforeach
 			</div>
 			{{-- //SERVICE IMPUT --}}
