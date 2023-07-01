@@ -1,8 +1,14 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <div class="container-fluid px-4">
         <h1 class="text-center mb-5">Properties</h1>
         <a href="{{ route('admin.properties.create') }}" class="btn btn-primary mb-5">Inserisci una nuova proprietà</a>
+                @if (session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
+
         <table class="table table-info table-hover">
             <thead>
                 <tr>
@@ -15,9 +21,10 @@
                     <th scope="col">Bathrooms</th>
                     <th scope="col">Square meters</th>
                     <th scope="col">Address</th>
+                    <th scope="col">Services</th>
                     <th scope="col">Latitude</th>
                     <th scope="col">Longitude</th>
-                    <th scope="col">Link</a></th>
+                    <th scope="col">Actions</a></th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +40,9 @@
                             <td>{{ $property->bathrooms }}</td>
                             <td>{{ $property->square_meters }}</td>
                             <td>{{ $property->address }}</td>
+                            <td>
+                                {{ $property->service ? $property->service->name : 'Nessun servizio aggiunto' }}
+                            </td>
                             <td>{{ $property->latitude }}</td>
                             <td>{{ $property->longitude }}</td>
                             <td style="width: 120px">
@@ -57,6 +67,7 @@
                 @endforeach
             </tbody>
         </table>
+
     </div>
     @include('partials.modal-delete')
 @endsection

@@ -5,13 +5,6 @@ import.meta.glob([
     '../img/**'
 ])
 
-/** MODAL-DELETE****/
-const el = document.getElementById("wrapper");
-const toggleButton = document.getElementById("menu-toggle");
-
-toggleButton.addEventListener('click', function() {
-    el.classList.toggle("toggled");
-});
 
 // MOdal-delete
 const deleteSubmitButtons = document.querySelectorAll('.delete-button');
@@ -30,7 +23,7 @@ deleteSubmitButtons.forEach((button) => {
         const modalItemTitle = modal.querySelector('#modal-item-title');
         modalItemTitle.textContent = dataTitle;
 
-        const buttonDelete = modal.querySelector('button.btn-primary');
+        const buttonDelete = modal.querySelector('button.btn-danger');
 
         buttonDelete.addEventListener('click', () => {
             button.parentElement.submit();
