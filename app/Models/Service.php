@@ -12,7 +12,7 @@ class Service extends Model
 
     public function properties()
     {
-        return $this->hasMany(Property::class);
+        return $this->belongsToMany(Property::class, 'property_service');
     }
 
 }

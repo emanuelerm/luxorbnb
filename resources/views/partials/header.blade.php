@@ -29,15 +29,22 @@
 			<ul class="navbar-nav ml-auto">
 				<!-- Authentication Links -->
 				@guest
-					<li class="nav-item">
-						<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-					</li>
-					@if (Route::has('register'))
-						<li class="nav-item">
-							<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-						</li>
-					@endif
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                </li>
+                @if (Route::has('register'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                </li>
+                @endif
 				@else
+                {{-- Button Offcanvas **--}}
+                    <li class="nav-item">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                    </li>
+                {{-- End button Off canvas **--}}
 					<li class="nav-item dropdown">
 						<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false" v-pre>
@@ -47,7 +54,7 @@
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="{{ url('admin') }}">{{ __('Dashboard') }}</a>
 							<a class="dropdown-item" href="{{ url('admin/properties') }}">properties</a>
-							<a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a>
+							<a class="dropdown-item" href="{{ route('admin.profile.edit') }}">{{ __('Profile') }}</a>
 							<a class="dropdown-item" href="{{ route('logout') }}"
 								onclick="event.preventDefault();
 									 document.getElementById('logout-form').submit();">

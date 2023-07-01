@@ -44,7 +44,7 @@ class Property extends Model
 
     public function services()
     {
-        return $this->belongsToMany(Service::class);
+        return $this->belongsToMany(Service::class, 'property_service');
     }
 
     public function offers()
