@@ -40,7 +40,7 @@
                                     class="text-decoration-none">
                                     <i class="fa-regular fa-eye me-2"></i>
                                 </a>
-                                <a href="{{ route('admin.profile.edit'), $property->id }}" class="text-decoration-none">
+                                <a href="{{ route('admin.properties.edit', ['property' => $property->id]) }}" class="text-decoration-none">
                                     <i class="fa-regular fa-pen-to-square me-2"></i>
                                 </a>
                                 <form action="{{ route('admin.properties.destroy', $property->id) }}" method="POST"
