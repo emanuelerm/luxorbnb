@@ -4,7 +4,7 @@
     <div class="container">
         <div class="card mx-auto mt-5" style="width: 20rem">
             @if ($property->image)
-                 <img src="{{ asset($property->image->path) }}" alt="Immagine proprietà">
+                 <img src="{{ $property->image->path }}" alt="Immagine proprietà">
             @else
                 <p>Nessuna immagine disponibile</p>
             @endif
@@ -12,11 +12,11 @@
                 <h5 class="card-title">{{ $property->title }}</h5>
                 <p class="card-text">{{ $property->description }}</p>
                 @if ($property->services && count($property->services) > 0)
-                <h2>Servizi Disponibili:</h2>
-                    <ul>
+                <h5>Servizi Disponibili:</h5>
+                    <ul class="d-flex">
                         @foreach ($property->services as $service)
-                           <li><a href="#"
-                                class="badge rounded-pill text-bg-info">{{ $service->name }}</a></li>
+                           <li class="list-unstyled p-1"><a href="#"
+                                class="badge text-decoration-none rounded-pill text-bg-info">{{ $service->name }}</a></li>
                         @endforeach
                     </ul>
                 @endif

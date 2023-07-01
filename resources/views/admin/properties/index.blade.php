@@ -21,7 +21,6 @@
                     <th scope="col">Bathrooms</th>
                     <th scope="col">Square meters</th>
                     <th scope="col">Address</th>
-                    <th scope="col">Services</th>
                     <th scope="col">Latitude</th>
                     <th scope="col">Longitude</th>
                     <th scope="col">Actions</a></th>
@@ -40,27 +39,25 @@
                             <td>{{ $property->bathrooms }}</td>
                             <td>{{ $property->square_meters }}</td>
                             <td>{{ $property->address }}</td>
-                            <td>
-                                {{ $property->service ? $property->service->name : 'Nessun servizio aggiunto' }}
-                            </td>
                             <td>{{ $property->latitude }}</td>
                             <td>{{ $property->longitude }}</td>
-                            <td style="width: 120px">
+                            <td>
+                                <div class="d-flex justify-content-between align-items-center">
                                 <a href="{{ route('admin.properties.show', ['property' => $property->id]) }}"
-                                    class="text-decoration-none">
+                                    class="btn btn-primary text-white">
                                     <i class="fa-regular fa-eye me-2"></i>
                                 </a>
-                                <a href="{{ route('admin.properties.edit', ['property' => $property->id]) }}" class="text-decoration-none">
+                                <a href="{{ route('admin.properties.edit', ['property' => $property->id]) }}" class="btn btn-warning text-white">
                                     <i class="fa-regular fa-pen-to-square me-2"></i>
                                 </a>
-                                <form action="{{ route('admin.properties.destroy', $property->id) }}" method="POST"
-                                    class="d-inline">
+                                <form action="{{ route('admin.properties.destroy', $property->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type='submit' class="delete-button btn btn-danger text-white"
                                         data-item-title="{{ $property->name }}"> <i class="fa-solid fa-trash"></i>
                                     </button>
                                 </form>
+                            </div>
                             </td>
                         </tr>
                     @endif

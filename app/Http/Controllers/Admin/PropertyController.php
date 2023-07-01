@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Property;
 use App\Models\Service;
+use App\Models\Image;
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
 use PHPUnit\Framework\MockObject\ReturnValueNotConfiguredException;
@@ -66,7 +67,8 @@ class PropertyController extends Controller
     {
 
         $services = Service::all();
-        return view('admin.properties.show', compact('property', 'services'));
+        $image = Image::where('property_id', $property->id)->first();
+        return view('admin.properties.show', compact('property', 'services','image'));
     }
 
     /**

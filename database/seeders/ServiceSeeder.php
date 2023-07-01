@@ -21,7 +21,7 @@ class ServiceSeeder extends Seeder
             'Piscina',
             'Portineria',
             'Sauna',
-            'Vista Mare'
+            'Vista Mare',
         ];
 
         foreach ($services as $service) {

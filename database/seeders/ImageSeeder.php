@@ -17,7 +17,7 @@ class ImageSeeder extends Seeder
     {
         $images = [
             [
-                'property_id' => 1,
+                'property_id' => 10,
                 'path' => 'https://gina.al/wp-content/uploads/2018/03/interior-dhe-exterior-apartamenti-1-08-1024x683-768x512.jpg',
             ],
 
