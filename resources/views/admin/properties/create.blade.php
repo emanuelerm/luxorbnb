@@ -73,6 +73,10 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="form-group py-3">
+                        <label for="images[]">Upload images</label>
+                        <input type="file" id="images" name="images[]">
+                    </div>
                     <button type="submit" class="btn btn-primary">Aggiunge nuova propietà</button>
                     <a href="{{ route('admin.properties.index') }}" class="btn btn-danger">Torna in dietro</a>
                 </form>

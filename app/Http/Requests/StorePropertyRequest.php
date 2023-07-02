@@ -32,6 +32,7 @@ class StorePropertyRequest extends FormRequest
             'bathrooms' => 'required|numeric',
             'square_meters' => 'required|numeric',
             'address' => 'required',
+            // 'images' => 'required',
             'latitude' => 'nullable',
             'longitude' => 'nullable',
             'visible' => 'nullable',
