@@ -25,6 +25,7 @@ class UpdatePropertyRequest extends FormRequest
     {
         return [
             'title' => 'required|max:255|min:5',
+            'description' => 'required|min:10',
             'rooms' => 'required|min:1',
             'beds' => 'required|min:1',
             'bathrooms' => 'required|min:1',

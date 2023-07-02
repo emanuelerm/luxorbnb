@@ -26,7 +26,7 @@ class StorePropertyRequest extends FormRequest
         return [
             'user_id' => 'required',
             'title' => 'required|max:100|min:3',
-            'description' => 'required|max:3000|min:30',
+            'description' => 'required|max:3000|min:10',
             'rooms' => 'required|numeric',
             'beds' => 'required|numeric',
             'bathrooms' => 'required|numeric',
