@@ -124,6 +124,8 @@ class PropertyController extends Controller
 
     if ($request->has('services')) {
         $property->services()->sync($request->services);
+    } else {
+        $property->services()->sync([]);
     }
 
     return redirect()->route('admin.properties.index')->with('message', "{$property->title} è stato aggiornato correttamente");
