@@ -10,6 +10,7 @@ class Property extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
+        'images',
         'title',
         'description',
         'rooms',
@@ -39,7 +40,7 @@ class Property extends Model
 
     public function images()
     {
-        return $this->hasMany(Image::class);
+        return $this->hasMany(Image::class, 'property_id');
     }
 
     public function services()

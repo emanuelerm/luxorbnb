@@ -34,6 +34,7 @@ class PropertyController extends Controller
     public function create(Service $service)
     {
         $service = Service::all();
+        // $images = Image::all();
         return view('admin.properties.create', compact('service'));
     }
 
@@ -44,23 +45,34 @@ class PropertyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StorePropertyRequest $request)
-    {
-        $user = Auth::user();
-        $form_data = $request->validated();
-        //$form_data = $this->validated($request->all());
-        $newProperty = new Property();
-        $newProperty->user_id = $user->id;
-        $newProperty->fill($form_data);
-        $newProperty->save();
-        if ($request->has('services')) {
-            $newProperty->services()->sync($request->services);
-        }
-        // if ($request->hasFile('image')) {
-        //     $image_path = Storage::put('uploads', $request->image);
-        //     $data['image'] = asset('storage/' . $image_path);
-        // }
-        return redirect()->route('admin.properties.index');
+{
+    $user = Auth::user();
+    $form_data = $request->validated();
+
+    $newProperty = new Property();
+    $newProperty->user_id = $user->id;
+    $newProperty->fill($form_data);
+    $newProperty->save();
+
+    if ($request->has('services')) {
+        $newProperty->services()->sync($request->services);
     }
+    // dd($request);
+    if ($request->hasFile('images')) {
+        foreach ($request->file('images') as $image) {
+            $image_path = Storage::put('uploads', $image);
+            // dd($image_path);
+            $image_path = str_replace('public', 'storage', $image_path);
+
+            $newProperty->images()->create([
+                'property_id' => $newProperty->id,
+                'path' => $image_path
+            ]);
+        }
+    }
+
+    return redirect()->route('admin.properties.index');
+}
 
     /**
      * Display the specified resource.

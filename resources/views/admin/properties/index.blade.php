@@ -21,8 +21,8 @@
                     <th scope="col">Bathrooms</th>
                     <th scope="col">Square meters</th>
                     <th scope="col">Address</th>
-                    <th scope="col">Latitude</th>
-                    <th scope="col">Longitude</th>
+                    {{-- <th scope="col">Latitude</th>
+                    <th scope="col">Longitude</th> --}}
                     <th scope="col">Actions</a></th>
                 </tr>
             </thead>
@@ -39,8 +39,8 @@
                             <td>{{ $property->bathrooms }}</td>
                             <td>{{ $property->square_meters }}</td>
                             <td>{{ $property->address }}</td>
-                            <td>{{ $property->latitude }}</td>
-                            <td>{{ $property->longitude }}</td>
+                            {{-- <td>{{ $property->latitude }}</td>
+                            <td>{{ $property->longitude }}</td> --}}
                             <td>
                                 <div class="d-flex justify-content-between align-items-center">
                                 <a href="{{ route('admin.properties.show', ['property' => $property->id]) }}"
