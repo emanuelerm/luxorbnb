@@ -24,12 +24,12 @@ class UpdatePropertyRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:255|min:5',
+            'title' => 'required|max:255|min:3',
             'description' => 'required|min:10',
             'rooms' => 'required|min:1',
             'beds' => 'required|min:1',
             'bathrooms' => 'required|min:1',
-            'square_meters' => 'required|min:50',
+            'square_meters' => 'required|integer|min:2',
             'address' => 'required|min:5'
         ];
     }
@@ -38,7 +38,7 @@ class UpdatePropertyRequest extends FormRequest
     {
         return [
             'title.required' => 'Il titolo è obbligatorio',
-            'title.min' => 'Il titolo deve contenere almeno 5 caratteri',
+            'title.min' => 'Il titolo deve contenere almeno 3 caratteri',
             'title.max' => 'Il titolo deve contenere massimo 255 caratteri',
             'rooms.required' => 'Il campo rooms è obbligatorio',
             'roomns.min' => 'L\' appartamento deve avere almeno 1 stanza',
