@@ -36,6 +36,8 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'date_of_birth' => ['required', 'date'],
+        ],[
+            'password.confirmed' => 'Le password alla registrazione non coincidono, inserisci due password uguali!!',
         ]);
 
         $user = User::create([
