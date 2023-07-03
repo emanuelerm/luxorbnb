@@ -3,11 +3,14 @@
 @section('content')
     <div class="container">
         <div class="card mx-auto mt-5" style="width: 20rem">
-            @if ($property->image)
-                 <img src="{{ $property->image->path }}" alt="Immagine proprietà">
-            @else
-                <p>Nessuna immagine disponibile</p>
-            @endif
+            @if ($images->count() > 0)
+            <h5>Immagini:</h5>
+            <div class="image-gallery">
+                @foreach ($images as $image)
+                    <img src="{{ asset('storage/' . $image->path) }}" alt="Property Image">
+                @endforeach
+            </div>
+        @endif
             <div class="card-body">
                 <h5 class="card-title">{{ $property->title }}</h5>
                 <p class="card-text">{{ $property->description }}</p>
