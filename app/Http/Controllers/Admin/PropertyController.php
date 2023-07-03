@@ -62,7 +62,8 @@ class PropertyController extends Controller
         foreach ($request->file('images') as $image) {
             $image_path = Storage::put('uploads', $image);
             // dd($image_path);
-            $image_path = str_replace('public', 'storage', $image_path);
+
+            // $image_path = Str::replace('uploads', 'public/storage/uploads', $image_path);
 
             $newProperty->images()->create([
                 'property_id' => $newProperty->id,
@@ -84,8 +85,9 @@ class PropertyController extends Controller
     {
 
         $services = Service::all();
-        $image = Image::where('property_id', $property->id)->first();
-        return view('admin.properties.show', compact('property', 'services','image'));
+        $images = Image::where('property_id', $property->id)->get();
+        // $images = $property->images;
+        return view('admin.properties.show', compact('property', 'services','images'));
     }
 
     /**
