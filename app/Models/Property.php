@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Property extends Model
 {
@@ -20,7 +21,8 @@ class Property extends Model
         'address',
         'latitude',
         'longitude',
-        'visible'
+        'visible',
+        'slug',
     ];
 
     public function visits()
@@ -52,4 +54,5 @@ class Property extends Model
     {
         return $this->belongsToMany(Offer::class);
     }
+    
 }
