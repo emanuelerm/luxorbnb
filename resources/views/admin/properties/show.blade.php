@@ -11,6 +11,11 @@
             <div class="card-body">
                 <h5 class="card-title">{{ $property->title }}</h5>
                 <p class="card-text">{{ $property->description }}</p>
+                <p class="card-text">Rooms: {{ $property->rooms }}</p>
+                <p class="card-text">Beds: {{ $property->beds }}</p>
+                <p class="card-text">Bathrooms: {{ $property->bathrooms }}</p>
+                <p class="card-text">Square Meters: {{ $property->square_meters }}</p>
+                <p class="card-text">Address: {{ $property->address }}</p>
                 @if ($property->services && count($property->services) > 0)
                 <h5>Servizi Disponibili:</h5>
                     <ul class="d-flex">
