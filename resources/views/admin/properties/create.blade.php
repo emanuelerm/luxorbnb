@@ -141,18 +141,21 @@
 						{{-- //ADDERESS IMPUT --}}
 
 						{{-- SERVICES IMPUT --}}
-						<div class="form-group py-3">
-							<p class="text-uppercase fw-bold" >Seleziona servizi:</p>
-							@foreach ($service as $service)
-								<div>
-									<input type="checkbox" name="serivces[]" value="{{ $service->id }}" class="form-check-input"
-										{{ in_array($service->id, old('service', [])) ? 'checked' : '' }}>
-									<label for="" class="form-check-label">{{ $service->name }}</label>
-								</div>
-							@endforeach
-							@error('tags')
-								<div class="invalid-feedback">{{ $message }}</div>
-							@enderror
+                            <div class="form-group">
+                                <p>Seleziona i servizi:</p>
+                                <div class="d-flex flex-wrap align-items-center w-100 py-4">
+                                    @foreach ($services as $service)
+                                        <div>
+                                            <input type="checkbox" name="services[]" value="{{ $service->id }}" class="form-check-input"
+                                                {{ in_array($service->id, old('services', [])) ? 'checked' : '' }}>
+                                            <label for="" class="form-check-label">{{ $service->name }}</label>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                @error('service')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
 						</div>
 						<div class="form-group py-3">
 							<label class="text-uppercase fw-bold px-2"  for="images[]">Upload images</label>

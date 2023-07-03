@@ -31,11 +31,11 @@ class PropertyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Service $service)
+    public function create()
     {
-        $service = Service::all();
+        $services = Service::all();
         // $images = Image::all();
-        return view('admin.properties.create', compact('service'));
+        return view('admin.properties.create', compact('services'));
     }
 
     /**
