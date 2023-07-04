@@ -7,7 +7,14 @@
             <h5>Immagini:</h5>
             <div class="image-gallery">
                 @foreach ($images as $image)
-                    <img src="{{ asset('storage/' . $image->path) }}" alt="Property Image">
+                    <img src="{{ asset('storage/' . $image->path) }}" alt="Property Image" width="250px">
+                    <form action="{{ route('admin.image.destroy', $image->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type='submit' class="delete-button btn btn-danger text-white"
+                            data-item-title="{{ $image->id }}"> <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </form>
                 @endforeach
             </div>
         @endif
@@ -29,4 +36,5 @@
             </div>
         </div>
     </div>
+    @include('partials.modal-delete')
 @endsection
