@@ -43,7 +43,7 @@
                             <td>{{ $property->longitude }}</td> --}}
                             <td>
                                 <div class="d-flex justify-content-between align-items-center">
-                                <a href="{{ route('admin.properties.show', ['property' => $property->id]) }}"
+                                <a href="{{ route('admin.properties.show', ['property' => $property->slug]) }}"
                                     class="btn btn-primary text-white">
                                     <i class="fa-regular fa-eye me-2"></i>
                                 </a>

@@ -20,8 +20,6 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
-    Route::resource('/properties', PropertyController::class);
-    Route::delete('/images/{image}', [ImageController::class, 'destroy'])->name('image.destroy');
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

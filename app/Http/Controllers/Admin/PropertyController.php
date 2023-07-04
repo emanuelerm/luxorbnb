@@ -10,6 +10,7 @@ use App\Models\Image;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
+use Illuminate\Support\Str;
 use PHPUnit\Framework\MockObject\ReturnValueNotConfiguredException;
 
 class PropertyController extends Controller
@@ -48,9 +49,10 @@ class PropertyController extends Controller
 {
     $user = Auth::user();
     $form_data = $request->validated();
-
     $newProperty = new Property();
     $newProperty->user_id = $user->id;
+    $slug = $this->getSlug($form_data['title'], 'form_data->title') ;
+    $form_data['slug'] = $slug;
     $newProperty->fill($form_data);
     $newProperty->save();
 
@@ -143,4 +145,43 @@ class PropertyController extends Controller
         $property->delete();
         return redirect()->route('admin.properties.index')->with('message', "{$property->title} è stato cancellato correttamente");
     }
+
+    private function getSlug($title)
+    {
+        $slug = Str::of($title)->slug("-");
+        $count = 1;
+
+        // Prendi il primo post il cui slug è uguale a $slug
+        // se è presente allora genero un nuovo slug aggiungendo -$count
+        while( Property::where("slug", $slug)->first() ) {
+            $slug = Str::of($title)->slug("-") . "-{$count}";
+            $count++;
+        }
+
+        return $slug;
+    }
+
+
+    // private function getSlug($property)
+    // {
+    //     $slug = Str::slug($property->title);
+    //     $count = 2;
+
+    //     // Prendi il primo post il cui slug è uguale a $slug
+    //     // se è presente allora genero un nuovo slug aggiungendo -$count
+    //     while (static::where("slug", $slug)->exist()) {
+    //         $slug = Str::slug($property->title) . "-{$count}";
+    //         $count++;
+    //     }
+
+    //     $property->slug = $slug;
+    // }
+    // protected static function boot()
+    // {
+    //     parent::boot();
+
+    //     static::saving(function ($model) {
+    //         $model->getSlug();
+    //     });
+    // }
 }
