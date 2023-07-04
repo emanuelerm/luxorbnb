@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
-    route::resource('/properties', PropertyController::class);
+    route::resource('/properties', PropertyController::class)->parameters(['properties' => 'property:slug']);
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
