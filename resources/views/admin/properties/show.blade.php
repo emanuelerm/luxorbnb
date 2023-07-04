@@ -18,19 +18,19 @@
                 @endforeach
             </div>
         @endif
-            <div class="card-body">
+            <div class="card-body d-flex align-items-center justify-content-center flex-column">
                 <h5 class="card-title">{{ $property->title }}</h5>
                 <p class="card-text">{{ $property->description }}</p>
                 @if ($property->services && count($property->services) > 0)
                 <h5>Servizi Disponibili:</h5>
-                    <ul class="d-flex">
+                    <ul class="d-flex align-items-center text-center">
                         @foreach ($property->services as $service)
                            <li class="list-unstyled p-1"><a href="#"
                                 class="badge text-decoration-none rounded-pill text-bg-info">{{ $service->name }}</a></li>
                         @endforeach
                     </ul>
                 @endif
-                <div class="d-flex justify-content-between align-content-center mt-2">
+                <div class="d-flex justify-content-center align-items-center mt-2">
                     <a class="btn btn-primary" href="{{ route('admin.properties.index') }}">Torna indietro</a>
                 </div>
             </div>
