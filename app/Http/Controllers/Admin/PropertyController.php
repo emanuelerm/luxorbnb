@@ -132,6 +132,19 @@ class PropertyController extends Controller
             $property->services()->sync([]);
         }
 
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $image_path = Storage::put('uploads', $image);
+
+                // $image_path = Str::replace('uploads', 'public/storage/uploads', $image_path);
+
+                $property->images()->create([
+                    'property_id' => $property->id,
+                    'path' => $image_path
+                ]);
+            }
+        }
+
         return redirect()->route('admin.properties.index')->with('message', "{$property->title} è stato aggiornato correttamente");
     }
 

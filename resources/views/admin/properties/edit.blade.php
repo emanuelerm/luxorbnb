@@ -11,7 +11,7 @@
         </ul>
     </div>
 @endif
-<form action="{{ route('admin.properties.update', $property->slug) }}" method="POST">
+<form action="{{ route('admin.properties.update', $property->slug) }}" method="POST" enctype="multipart/form-data">
     <div class="container">
             @csrf
             @method('PUT')
