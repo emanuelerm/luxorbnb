@@ -51,8 +51,9 @@ class PropertyController extends Controller
     $form_data = $request->validated();
     $newProperty = new Property();
     $newProperty->user_id = $user->id;
-    $slug = $this->getSlug($form_data['title'], 'form_data->title') ;
+    $slug = $this->getSlug($form_data['title'], 'form_data->title');
     $form_data['slug'] = $slug;
+    // dd($request->images);
     $newProperty->fill($form_data);
     $newProperty->save();
 
@@ -119,7 +120,7 @@ class PropertyController extends Controller
     {
         $user = Auth::user();
         $form_data = $request->validated();
-
+        // dd($form_data);
         // Aggiornare i dati della proprietà esistente invece di creare una nuova proprietà
         $property->user_id = $user->id;
         $property->fill($form_data);
@@ -129,6 +130,19 @@ class PropertyController extends Controller
             $property->services()->sync($request->services);
         } else {
             $property->services()->sync([]);
+        }
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $image_path = Storage::put('uploads', $image);
+
+                // $image_path = Str::replace('uploads', 'public/storage/uploads', $image_path);
+
+                $property->images()->create([
+                    'property_id' => $property->id,
+                    'path' => $image_path
+                ]);
+            }
         }
 
         return redirect()->route('admin.properties.index')->with('message', "{$property->title} è stato aggiornato correttamente");

@@ -47,10 +47,10 @@
                                     class="btn btn-primary text-white">
                                     <i class="fa-regular fa-eye me-2"></i>
                                 </a>
-                                <a href="{{ route('admin.properties.edit', ['property' => $property->id]) }}" class="btn btn-warning text-white">
+                                <a href="{{ route('admin.properties.edit', ['property' => $property->slug]) }}" class="btn btn-warning text-white">
                                     <i class="fa-regular fa-pen-to-square me-2"></i>
                                 </a>
-                                <form action="{{ route('admin.properties.destroy', $property->id) }}" method="POST">
+                                <form action="{{ route('admin.properties.destroy', $property->slug) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type='submit' class="delete-button btn btn-danger text-white"

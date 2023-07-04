@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Image;
 use App\Http\Requests\StoreImageRequest;
 use App\Http\Requests\UpdateImageRequest;
@@ -82,8 +83,10 @@ class ImageController extends Controller
      */
     public function destroy(Image $image)
     {
-        $property = $image->property_id;
+        $propertySlug = $image->property->slug;
+        Storage::delete($image->path);
+        // dd($propertySlug);
         $image->delete();
-        return redirect()->route('admin.properties.show', ['property' => $property])->with('message', "L'immagine numero {$image->id} è stata cancellato correttamente");
+        return redirect()->route('admin.properties.show', ['property' => $propertySlug])->with('message', "L'immagine numero {$image->id} è stata cancellato correttamente");
     }
 }
