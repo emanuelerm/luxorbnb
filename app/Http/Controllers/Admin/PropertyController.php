@@ -102,7 +102,8 @@ class PropertyController extends Controller
         //     abort(403);
         // }
         $services = Service::all();
-        return view('admin.properties.edit', compact('property', 'services'));
+        $images = Image::where('property_id', $property->id)->get();
+        return view('admin.properties.edit', compact('property', 'services', 'images'));
     }
 
     /**
@@ -113,23 +114,23 @@ class PropertyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdatePropertyRequest $request, Property $property)
-{
-    $user = Auth::user();
-    $form_data = $request->validated();
+    {
+        $user = Auth::user();
+        $form_data = $request->validated();
 
-    // Aggiornare i dati della proprietà esistente invece di creare una nuova proprietà
-    $property->user_id = $user->id;
-    $property->fill($form_data);
-    $property->save();
+        // Aggiornare i dati della proprietà esistente invece di creare una nuova proprietà
+        $property->user_id = $user->id;
+        $property->fill($form_data);
+        $property->save();
 
-    if ($request->has('services')) {
-        $property->services()->sync($request->services);
-    } else {
-        $property->services()->sync([]);
+        if ($request->has('services')) {
+            $property->services()->sync($request->services);
+        } else {
+            $property->services()->sync([]);
+        }
+
+        return redirect()->route('admin.properties.index')->with('message', "{$property->title} è stato aggiornato correttamente");
     }
-
-    return redirect()->route('admin.properties.index')->with('message', "{$property->title} è stato aggiornato correttamente");
-}
 
     /**
      * Remove the specified resource from storage.

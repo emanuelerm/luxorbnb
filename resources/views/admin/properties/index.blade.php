@@ -64,7 +64,6 @@
                 @endforeach
             </tbody>
         </table>
-
     </div>
     @include('partials.modal-delete')
 @endsection
