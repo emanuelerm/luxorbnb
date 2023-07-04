@@ -51,8 +51,9 @@ class PropertyController extends Controller
     $form_data = $request->validated();
     $newProperty = new Property();
     $newProperty->user_id = $user->id;
-    $slug = $this->getSlug($form_data['title'], 'form_data->title') ;
+    $slug = $this->getSlug($form_data['title'], 'form_data->title');
     $form_data['slug'] = $slug;
+    // dd($request->images);
     $newProperty->fill($form_data);
     $newProperty->save();
 
@@ -119,7 +120,7 @@ class PropertyController extends Controller
     {
         $user = Auth::user();
         $form_data = $request->validated();
-
+        // dd($form_data);
         // Aggiornare i dati della proprietà esistente invece di creare una nuova proprietà
         $property->user_id = $user->id;
         $property->fill($form_data);

@@ -30,7 +30,8 @@ class UpdatePropertyRequest extends FormRequest
             'beds' => 'required|min:1',
             'bathrooms' => 'required|min:1',
             'square_meters' => 'required|integer|min:2',
-            'address' => 'required|min:5'
+            'address' => 'required|min:5',
+            'visible' => 'boolean'
         ];
     }
 
@@ -48,7 +49,7 @@ class UpdatePropertyRequest extends FormRequest
             'bathrooms.min' => 'L\' appartamento deve avere almeno 1 bagno',
             'square_meters.required' => 'Il campo square meters è obbligatorio',
             'square_meters.min' => 'L\'appartamento deve essere almeno di 50 metri quadri',
-            'addess.required' => 'Il campoaddress è obbligatorio',
+            'addess.required' => 'Il campo address è obbligatorio',
             'address.min' => 'L\'address deve contenere almeno 5 caratteri',
         ];
     }

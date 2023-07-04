@@ -82,8 +82,9 @@ class ImageController extends Controller
      */
     public function destroy(Image $image)
     {
-        $property = $image->property_id;
+        $propertySlug = $image->property->slug;
+        // dd($propertySlug);
         $image->delete();
-        return redirect()->route('admin.properties.show', ['property' => $property])->with('message', "L'immagine numero {$image->id} è stata cancellato correttamente");
+        return redirect()->route('admin.properties.show', ['property' => $propertySlug])->with('message', "L'immagine numero {$image->id} è stata cancellato correttamente");
     }
 }

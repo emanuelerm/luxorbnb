@@ -11,7 +11,7 @@
         </ul>
     </div>
 @endif
-<form action="{{ route('admin.properties.update', $property->id) }}" method="POST">
+<form action="{{ route('admin.properties.update', $property->slug) }}" method="POST">
     <div class="container">
             @csrf
             @method('PUT')
@@ -92,6 +92,11 @@
                 </select>
             </div>
 
+
+			<div class="form-group py-3">
+				<label class="text-uppercase fw-bold px-2"  for="images[]">Upload images</label>
+				<input class="px-3" type="file" id="images" name="images[]" multiple>
+			</div>
             <button type="submit" class="btn btn-primary">Update</button>
         </div>
     </form>
