@@ -8,3 +8,24 @@ $fa-font-path: "../fonts/webfonts" !default;
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
 @import "~bootstrap/scss/bootstrap";
+@import './partials/sidebar.scss';
+@import "./partials/header.scss";
+
+:root{
+    --main-bg-color: #009d63;
+    --main-text-color: #009d63;
+    --second-text-color: #bbbec5;
+    --second-bg-color: #c1efde;
+    --colorBlue: #131661;
+    --colorWhite: #FFFFFF;
+    --lightgreen: #00B67A;
+    --colorBlack: #000000;
+    --secondaryBlue: #090E38;
+    --color-cards: #232B5C;
+    --redMario:#E60012;
+    --blueMario: #0060AD;
+    --greenMario: #46AD37;
+    --gialloMario:#FED200;
+    --bluelightMario: #009EDB;
+    --main-mario: #F4F4F4;
+}

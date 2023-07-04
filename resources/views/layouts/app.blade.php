@@ -22,10 +22,13 @@
 <body>
     <div id="app">
         @include('partials.header')
-        @include('partials.offCanvas')
-        <main class="">
-            @yield('content')
-        </main>
+        <div class="">
+            <div class="">
+                @yield('content')
+            </div>
+        </div>
+        {{-- @include('partials.offCanvas') --}}
+
     </div>
 </body>
 

@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="card mx-auto mt-5" style="width: 20rem">
+    <div class="d-flex" id="wrapper">
+        @include('partials.sidebar')
+        <div class="card mx-auto mt-5" id="page-content-wrapper" style="width: 20rem">
             @if ($images->count() > 0)
             <h5>Immagini:</h5>
             <div class="image-gallery">
