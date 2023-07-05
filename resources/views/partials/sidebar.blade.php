@@ -9,7 +9,7 @@
                 class="list-group-item list-group-item-action bg-transparent second-text active"><i
                     class="fas fa-tachometer-alt me-2"></i>{{ __('Dashboard') }}</a>
 
-            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <a href="{{ route('admin.messages.index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fa-regular fa-comment me-2"></i>Message</a>
 
             <a href="{{ url('admin/properties') }}"

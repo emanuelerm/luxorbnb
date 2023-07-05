@@ -33,6 +33,7 @@
                 @endif
                 <div class="d-flex justify-content-between align-content-center mt-2">
                     <a class="btn btn-primary" href="{{ route('admin.properties.index') }}">Torna indietro</a>
+                    <a href="{{ route('admin.messages.create', ['id' => $property->id]) }}">Invia messaggio</a>
                 </div>
             </div>
         </div>
