@@ -26,7 +26,7 @@
                         {{ session()->get('message') }}
                     </div>
                 @endif
-                    <div class="col-md-3 ">
+                    <div class="col-md-3">
                         <div class="p-4 card-color shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div class="text-white">
                                 <p class="fs-5">Actions</p>

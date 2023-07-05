@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Message;
+use App\Models\Property;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+
 
 class MessageController extends Controller
 {
@@ -16,17 +18,22 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
-    }
 
+        $messages = Message::all();
+
+        return view('admin.messages.index', compact('messages'));
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+
+        $property = Property::find($id);
+        // dd($property);
+        return view('admin.messages.create', compact('property'));
     }
 
     /**
@@ -35,9 +42,25 @@ class MessageController extends Controller
      * @param  \App\Http\Requests\StoreMessageRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMessageRequest $request)
+    public function store(StoreMessageRequest $request, $id)
     {
-        //
+        // Validazione dei dati del modulo
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'email' => 'required|email',
+            'message' => 'required',
+        ]);
+
+        // Crea un nuovo messaggio nel database
+        Message::create([
+            'title' => $validatedData['title'],
+            'email' => $validatedData['email'],
+            'message' => $validatedData['message'],
+            'property_id' => $id,
+        ]);
+
+
+        return redirect()->route('admin.properties.show')->with('success', 'Il messaggio è stato inviato con successo!');
     }
 
     /**
