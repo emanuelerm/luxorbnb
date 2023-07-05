@@ -7,7 +7,7 @@ body{
     font-family: 'Urbanist', sans-serif;
     overflow-x: hidden;
 }
-header{
+.header{
 
     width: 100vw;
     height: 100px;
@@ -17,7 +17,7 @@ header{
     align-items: center;
 }
 
-header .container-fluid{
+.header .container-fluid{
 
     width: 100%;
     padding: 0 60px;
@@ -28,19 +28,19 @@ header .container-fluid{
 
 @media(max-width:992px){
 
-    header .container-fluid{
+    .header .container-fluid{
 
         padding: 0 5%;
     }
 }
 
-header .navb-logo img{
+.header .navb-logo img{
 
     width: 140px;
     height: 66px;
 }
 
-header .navb-items{
+.header .navb-items{
 
     display: flex;
     align-items: center;
@@ -48,7 +48,7 @@ header .navb-items{
     letter-spacing: 3px;
 }
 
-header .item{
+.header .item{
 
     text-align: center;
     margin-inline: 15%;
@@ -62,13 +62,13 @@ header .item{
     cursor: pointer;
 }
 
-header .item:hover{
+.header .item:hover{
 
     border-bottom: 3px solid #64d6f4;
     border-top: 3px solid #64d6f4;
 }
 
-header .item-button a{
+.header .item-button a{
 
     background: var(--greenMario);
     width: 100%;
@@ -84,7 +84,7 @@ header .item-button a{
     transition: all .5s ease;
 }
 
-header .mobile-toggler{
+.header .mobile-toggler{
 
     font-size: 30px;
 }
