@@ -3,7 +3,7 @@
 @section('content')
 @vite('resources/scss/partials/show.scss')
     <div class="container d-flex justify-content-center align-items-center gap-4">
-        <div class="card w-75 h-100 mx-auto mt-5" style="width: 20rem">
+        <div class="card w-50 h-100 mx-auto mt-5" style="width: 20rem">
             @if ($images->count() > 0)
                 <div id="imageCarousel" class="carousel slide card-image" data-bs-ride="carousel">
                     <div class="carousel-inner">
@@ -32,14 +32,14 @@
                     </button>
                 </div>
             @endif
-            <div class="card-body card-body-content d-flex align-items-center justify-content-center flex-column w-100 border">
+            <div class="card-body card-body-content d-flex align-items-center justify-content-center flex-column border mb-5">
                 <h5 class="card-title">{{ $property->title }}</h5>
                 <p class="card-text">{{ $property->description }}</p>
-                <p class="card-text">Rooms: {{ $property->rooms }}</p>
-                <p class="card-text">Beds: {{ $property->beds }}</p>
-                <p class="card-text">Bathrooms: {{ $property->bathrooms }}</p>
-                <p class="card-text">Square Meters: {{ $property->square_meters }}</p>
-                <p class="card-text">Address: {{ $property->address }}</p>
+                <p class="card-text"><span class="fw-bold">Camere: </span>{{ $property->rooms }}</p>
+                <p class="card-text"><span class="fw-bold">Letti: </span>{{ $property->beds }}</p>
+                <p class="card-text"><span class="fw-bold">Bagni: </span>{{ $property->bathrooms }}</p>
+                <p class="card-text"><span class="fw-bold">Metri quadrati:</span>{{ $property->square_meters }}</p>
+                <p class="card-text"><span class="fw-bold">Indirizzo: </span>{{ $property->address }}</p>
                 @if ($property->services && count($property->services) > 0)
                     <h5>Servizi Disponibili:</h5>
                     <ul class="d-flex align-items-center text-center flex-wrap">
@@ -54,9 +54,6 @@
                     <a class="btn btn-primary" href="{{ route('admin.properties.index') }}">Torna indietro</a>
                 </div>
             </div>
-        </div>
-        <div class="w-25">
-            <p class="card-text">{{ $property->description }}</p>
         </div>
     </div>
     @include('partials.modal-delete')

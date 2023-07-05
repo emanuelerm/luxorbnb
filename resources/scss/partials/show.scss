@@ -1,3 +1,7 @@
+main{
+    height: 100vh;
+    margin-bottom: 40px;
+}
 .card {
     position: relative;
     .card-image{
@@ -26,13 +30,13 @@
     }
     .card-body-content {
       position: absolute;
-      top: 46%;
-      right: 0px;
-      height: 0px;
+      top: 0%;
+      opacity: 0;
     }
     &:hover .card-body-content {
       top: 100%;
       transition: 2s;
+      opacity: 1;
     }
     &:not(:hover) .card-body-content,
     img {
