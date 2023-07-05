@@ -8,35 +8,35 @@ $fa-font-path: "../fonts/webfonts" !default;
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
 @import "~bootstrap/scss/bootstrap";
-@import './partials/sidebar.scss';
+@import "./partials/sidebar.scss";
 @import "./partials/header.scss";
 
-:root{
+:root {
     --main-bg-color: #009d63;
     --main-text-color: #009d63;
     --second-text-color: #bbbec5;
     --second-bg-color: #c1efde;
     --colorBlue: #131661;
-    --colorWhite: #FFFFFF;
-    --lightgreen: #00B67A;
+    --colorWhite: #ffffff;
+    --lightgreen: #00b67a;
     --colorBlack: #000000;
-    --secondaryBlue: #090E38;
-    --color-cards: #232B5C;
-    --redMario:#E60012;
-    --blueMario: #0060AD;
-    --greenMario: #46AD37;
-    --gialloMario:#FED200;
-    --bluelightMario: #009EDB;
-    --main-mario: #F4F4F4;
+    --secondaryBlue: #090e38;
+    --color-cards: #232b5c;
+    --redMario: #e60012;
+    --blueMario: #0060ad;
+    --greenMario: #46ad37;
+    --gialloMario: #fed200;
+    --bluelightMario: #009edb;
+    --main-mario: #f4f4f4;
     ///dashboard////
-    --main-dashboard: #05121B;
-    --main-sidebar: #1B2831;
-    --sidebar-hover: #3A82EA;
-    --card-dashboard: #0F1C25;
-    --icon-orange: #F08B5A;
-    --icon-fucsia: #B53D59;
-    --icon-viola: #692E72;
-    --btn-dashboard: #4E509A;
+    --main-dashboard: #05121b;
+    --main-sidebar: #1b2831;
+    --sidebar-hover: #3a82ea;
+    --card-dashboard: #0f1c25;
+    --icon-orange: #f08b5a;
+    --icon-fucsia: #b53d59;
+    --icon-viola: #692e72;
+    --btn-dashboard: #4e509a;
     /// //////////
 }
 

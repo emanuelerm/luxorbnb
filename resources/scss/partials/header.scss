@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap");
+
+body {
+    font-family: "Urbanist", sans-serif;
+    overflow-x: hidden;
+}
+.header {
+=======
 
 
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap');
@@ -9,6 +18,7 @@ body{
 }
 .header{
 
+>>>>>>> main
     width: 100vw;
     height: 100px;
     background: var(--card-dashboard);
@@ -17,8 +27,12 @@ body{
     align-items: center;
 }
 
+<<<<<<< HEAD
+.header .container-fluid {
+=======
 .header .container-fluid{
 
+>>>>>>> main
     width: 100%;
     padding: 0 60px;
     display: flex;
@@ -26,47 +40,76 @@ body{
     justify-content: space-between;
 }
 
+<<<<<<< HEAD
+@media (max-width: 992px) {
+    .header .container-fluid {
+=======
 @media(max-width:992px){
 
     .header .container-fluid{
 
+>>>>>>> main
         padding: 0 5%;
     }
 }
 
+<<<<<<< HEAD
+.header .navb-logo img {
+=======
 .header .navb-logo img{
 
+>>>>>>> main
     width: 140px;
     height: 66px;
 }
 
+<<<<<<< HEAD
+.header .navb-items {
+=======
 .header .navb-items{
 
+>>>>>>> main
     display: flex;
     align-items: center;
     justify-content: flex-end;
     letter-spacing: 3px;
 }
 
+<<<<<<< HEAD
+.header .item {
+=======
 .header .item{
 
+>>>>>>> main
     text-align: center;
     margin-inline: 15%;
     font-size: 20px;
     letter-spacing: 3px;
     color: #102447;
     padding: 5px 0;
+<<<<<<< HEAD
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+
+.header .item:hover {
+=======
     transition: all .1s ease;
     cursor: pointer;
 }
 
 .header .item:hover{
 
+>>>>>>> main
     border-bottom: 3px solid #64d6f4;
     border-top: 3px solid #64d6f4;
 }
 
+<<<<<<< HEAD
+.header .item-button a {
+=======
 .header .item-button a{
+>>>>>>> main
     width: 100%;
     height: 50px;
     display: flex;
@@ -77,6 +120,16 @@ body{
     font-size: 18px;
     font-weight: 600;
     color: #fff;
+<<<<<<< HEAD
+    transition: all 0.5s ease;
+}
+
+.header .item-button a:hover {
+    color: var(--icon-orange);
+}
+
+.header .mobile-toggler {
+=======
     transition: all .5s ease;
 }
 
@@ -86,36 +139,54 @@ body{
 
 .header .mobile-toggler{
 
+>>>>>>> main
     font-size: 30px;
 }
 
 /* modal */
 
+<<<<<<< HEAD
+.modal-dialog {
+=======
 .modal-dialog{
 
+>>>>>>> main
     margin: 0;
     width: 430px;
     color: wheat;
 }
 
+<<<<<<< HEAD
+@media (max-width: 450px) {
+    .modal-dialog {
+=======
 @media(max-width: 450px){
 
     .modal-dialog{
 
+>>>>>>> main
         width: 82%;
     }
 }
 
+<<<<<<< HEAD
+.modal-content {
+=======
 .modal-content{
 
+>>>>>>> main
     border-radius: 0;
     height: 100vh;
     overflow-y: scroll;
     background-color: #102447;
 }
 
+<<<<<<< HEAD
+.modal-header {
+=======
 .modal-header{
 
+>>>>>>> main
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -125,35 +196,55 @@ body{
     border-bottom: 2px solid #fefefe;
 }
 
+<<<<<<< HEAD
+.modal-header img {
+=======
 .modal-header img{
 
+>>>>>>> main
     width: 140px;
     height: 66px;
     margin-top: 17.5px;
 }
 
+<<<<<<< HEAD
+.modal-header .btn-close {
+=======
 .modal-header .btn-close{
 
+>>>>>>> main
     background: transparent;
     opacity: 1;
 }
 
+<<<<<<< HEAD
+.modal-header i {
+=======
 .modal-header i{
 
+>>>>>>> main
     color: #fefefe;
     font-size: 30px;
 }
 
+<<<<<<< HEAD
+.modal-body {
+=======
 .modal-body{
 
+>>>>>>> main
     width: 88%;
     margin: 0 auto;
     padding: 75px 0 0 0;
     flex: unset;
 }
 
+<<<<<<< HEAD
+.modal-body .modal-line {
+=======
 .modal-body .modal-line{
 
+>>>>>>> main
     width: 100%;
     display: flex;
     align-items: center;
@@ -161,28 +252,44 @@ body{
     padding: 7px 0;
     margin-bottom: 50px;
     cursor: pointer;
+<<<<<<< HEAD
+    transition: all 0.5s ease;
+=======
     transition: all .5s ease;
+>>>>>>> main
     color: #274d8a;
     border-bottom: 1px solid #274d8a;
 }
 
+<<<<<<< HEAD
+.modal-body .modal-line:hover {
+=======
 .modal-body .modal-line:hover{
 
+>>>>>>> main
     color: #fefefe;
     border-bottom: 1px solid #fefefe;
     background-color: #274d8a;
 }
 
+<<<<<<< HEAD
+.modal-line a {
+=======
 .modal-line a{
 
+>>>>>>> main
     font-size: 17px;
     font-weight: 500;
     letter-spacing: 2.5px;
     color: #fefefe;
 }
 
+<<<<<<< HEAD
+.modal-line i {
+=======
 .modal-line i{
 
+>>>>>>> main
     color: currentColor;
     font-size: 30px;
     width: 35px;
@@ -190,8 +297,12 @@ body{
     padding: 0 0 3px 3px;
 }
 
+<<<<<<< HEAD
+.navb-button {
+=======
 .navb-button{
 
+>>>>>>> main
     width: 100%;
     height: 47px;
     // background-color: #fefefe;
@@ -202,17 +313,28 @@ body{
     font-weight: 700;
     color: #274d8a;
     letter-spacing: 2px;
+<<<<<<< HEAD
+    transition: all 0.5s ease;
+}
+
+.navb-button:hover {
+=======
     transition: all .5s ease;
 }
 
 .navb-button:hover{
 
+>>>>>>> main
     background-color: #274d8a;
     color: #fefefe;
 }
 
+<<<<<<< HEAD
+.mobile-modal-footer {
+=======
 .mobile-modal-footer{
 
+>>>>>>> main
     width: 87%;
     margin: 0 auto;
     padding: 20% 0;
@@ -223,6 +345,13 @@ body{
     color: #274d8a;
 }
 
+<<<<<<< HEAD
+.mobile-modal-footer i:hover {
+    color: #fefefe;
+}
+
+@media (max-width: 767px) {
+=======
 .mobile-modal-footer i:hover{
 
     color: #fefefe;
@@ -231,6 +360,7 @@ body{
 
 @media(max-width:767px){
 
+>>>>>>> main
     // .section-1 p{
 
     //     font-size: 50px;

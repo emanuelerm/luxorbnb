@@ -53,7 +53,7 @@ class PropertyController extends Controller
     $newProperty->user_id = $user->id;
     $slug = $this->getSlug($form_data['title'], 'form_data->title');
     $form_data['slug'] = $slug;
-    // dd($request->images);
+    // dd($request);
     $newProperty->fill($form_data);
     $newProperty->save();
 
@@ -105,8 +105,7 @@ class PropertyController extends Controller
         //     abort(403);
         // }
         $services = Service::all();
-        $images = Image::where('property_id', $property->id)->get();
-        return view('admin.properties.edit', compact('property', 'services', 'images'));
+        return view('admin.properties.edit', compact('property', 'services'));
     }
 
     /**
@@ -145,7 +144,17 @@ class PropertyController extends Controller
             }
         }
 
-        return redirect()->route('admin.properties.index')->with('message', "{$property->title} è stato aggiornato correttamente");
+        $imagesToDelete = $request->input('images_to_delete');
+        if ($imagesToDelete) {
+            foreach ($imagesToDelete as $imageId) {
+                $image = Image::findOrFail($imageId);
+                // Effettua le operazioni necessarie per eliminare l'immagine,
+                // come eliminare il record dal database e il file fisico dell'immagine.
+                $image->delete();
+            }
+        }
+
+        return redirect()->route('admin.properties.show', compact('property'))->with('message', "{$property->title} è stato aggiornato correttamente");
     }
 
     /**

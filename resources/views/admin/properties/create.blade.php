@@ -1,8 +1,20 @@
 @extends('layouts.app')
-
+@section('script')
+<link
+rel="stylesheet"
+type="text/css"
+href="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css"
+/>
+<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.1.2-public-preview.15/services/services-web.min.js"></script>
+<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js"></script>
+@endsection
 <title>Aggiunge Propietà</title>
 
 @section('content')
+<<<<<<< HEAD
+@vite('resources/js/tomtomconfig.js')
+=======
+>>>>>>> main
 <div class="d-flex" id=wrapper>
 
     @include('partials.sidebar')
@@ -39,8 +51,130 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+<<<<<<< HEAD
                                 </div>
                             </div>
+                            {{-- //TITLE IMPUT --}}
+
+                            {{-- DESCRIPTION IMPUT --}}
+                            <div class="m-4 d-flex align-items-center row ">
+                                <label class="text-uppercase fw-bold" for="description">description</label>
+
+                                <div class="col-md-4">
+
+                                    <textarea name="description" id="description" cols="30" rows="7"
+                                     class="form-control @error('description') is-invalid @enderror" value="{{ old('address') }}"></textarea>
+                                    @error('description')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            {{-- //DESCRIPTION IMPUT --}}
+
+                            {{-- ROOMS IMPUT --}}
+                            <div class="m-4 d-flex align-items-center row ">
+                                <label class="text-uppercase fw-bold" for="rooms">rooms</label>
+
+                                <div class="col-md-6">
+                                    <input id="rooms" type="number" min="1" max="10"
+                                        class="form-control @error('rooms') is-invalid @enderror" name="rooms" value="{{ old('rooms') }}">
+
+                                    @error('rooms')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            {{-- //ROOMS IMPUT --}}
+                            {{-- BEDS IMPUT --}}
+                            <div class="m-4 d-flex align-items-center row ">
+                                <label class="text-uppercase fw-bold" for="beds">beds</label>
+
+                                <div class="col-md-6">
+                                    <input id="beds" type="number" min="1" max="20"
+                                        class="form-control @error('beds') is-invalid @enderror" name="beds" value="{{ old('beds') }}">
+
+                                    @error('beds')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            {{-- //BEDS IMPUT --}}
+
+                            {{-- BATHROOM IMPUT --}}
+                            <div class="m-4 d-flex align-items-center row ">
+                                <label class="text-uppercase fw-bold" for="bathrooms">bathrooms</label>
+
+                                <div class="col-md-6">
+                                    <input id="bathrooms" type="number" min="1" max="10"
+                                        class="form-control  @error('bathrooms') is-invalid @enderror" name="bathrooms" value="{{ old('bathrooms') }}">
+
+                                    @error('bathrooms')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            {{-- //BATHROOM IMPUT --}}
+
+                            {{-- SQUARE_METERS IMPUT --}}
+                            <div class="m-4 d-flex align-items-center row ">
+                                <label class="text-uppercase fw-bold" for="square_meters">square meters</label>
+
+                                <div class="col-md-6">
+                                    <input id="square_meters" type="number" min="70" max="300"
+                                        class="form-control @error('square_meters') is-invalid @enderror" name="square_meters"
+                                        value="{{ old('square_meters') }}">
+
+                                    @error('square_meters')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            {{-- //SQUARE_METERS IMPUT --}}
+
+                            {{-- ADDERESS IMPUT --}}
+                            <div class="m-4 d-flex align-items-center row ">
+                                <label class="text-uppercase fw-bold" for="address">address</label>
+
+                                <div class="col-md-6">
+                                                        <label for="address" class="form-label text-uppercase fw-bold">Indirizzo</label>
+                                                        <div id="address"></div>
+                                                    </div>
+
+                                    @error('address')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            {{-- //ADDERESS IMPUT --}}
+                            {{-- SERVICES IMPUT --}}
+                            <div class="form-group px-4">
+                                <p>Select services:</p>
+                                <div class="d-flex flex-wrap align-items-center w-100 py-4">
+                                    @foreach ($services as $service)
+                                        <div>
+                                            <input type="checkbox" name="services[]" value="{{ $service->id }}" class="form-check-input"
+                                                {{ in_array($service->id, old('services', [])) ? 'checked' : '' }}>
+                                            <label for="" class="form-check-label pe-3">{{ $service->name }}</label>
+                                        </div>
+                                    @endforeach
+=======
+>>>>>>> main
+                                </div>
+                            </div>
+<<<<<<< HEAD
+=======
                             {{-- //TITLE IMPUT --}}
 
                             {{-- DESCRIPTION IMPUT --}}
@@ -162,6 +296,7 @@
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
+>>>>>>> main
                             </div>
                             <div class="form-group py-3 d-flex flex-column">
                                 <label class="text-uppercase fw-bold px-4"  for="images[]">Upload images</label>
@@ -169,6 +304,19 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Add new property</button>
                             <a href="{{ route('admin.properties.index') }}" class="btn btn-danger">Go to back</a>
+<<<<<<< HEAD
+                            </div>
+                            </form>
+                            </div>
+                            </div>
+                            </div>
+
+                            </div>
+                            </div>
+
+                            @vite('resources/js/tomtomsetattr.js')
+                            @endsection
+=======
                         </div>
                     </form>
                 </div>
@@ -180,3 +328,4 @@
 
 
 @endsection
+>>>>>>> main

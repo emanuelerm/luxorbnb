@@ -7,7 +7,11 @@
 
             <a href="{{ url('/admin') }}"
                 class="list-group-item list-group-item-action bg-transparent second-text active"><i
+<<<<<<< HEAD
+                    class="fas fa-tachometer-alt me-2"></i>{{ ('Dashboard') }}</a>
+=======
                     class="fas fa-tachometer-alt me-2"></i>{{ __('Dashboard') }}</a>
+>>>>>>> main
 
             <a href="{{ route('admin.messages.index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
                 <i class="fa-regular fa-comment me-2"></i>Message</a>
@@ -23,7 +27,11 @@
                 onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();"
                 class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+<<<<<<< HEAD
+                    class="fas fa-power-off me-2"></i>{{ ('Logout') }}</a>
+=======
                     class="fas fa-power-off me-2"></i>{{ __('Logout') }}</a>
+>>>>>>> main
         </div>
     </div>
     <!-- /#sidebar-wrapper -->

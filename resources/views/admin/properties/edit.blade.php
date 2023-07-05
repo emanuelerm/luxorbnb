@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -70,7 +69,10 @@
                                         <input type="checkbox" name="services[]" value="{{ $service->id }}" class="form-check-input"
                                             {{ $property->services->contains($service) ? 'checked' : '' }}>
                                     @endif
+<<<<<<< HEAD
+=======
 
+>>>>>>> main
                                     <label for="" class="form-check-label pe-3">{{ $service->name }}</label>
                                 </div>
                             @endforeach
@@ -80,6 +82,15 @@
                             </div>
                         @enderror
                     </div>
+<<<<<<< HEAD
+                    <div class="media me-4 d-flex gap-3">
+                        @foreach ($property->images as $image)
+                            <div id="preview">
+                                <img class="uploadPreview shadow" width="150" src="{{ $image ? asset('storage/' . $image->path) : 'https://via.placeholder.com/300x200' }}" alt="{{ $property->title . '-' .  $image->id }}" data-image-id="{{ $image->id }}">
+                                <input type="checkbox" name="images_to_delete[]" value="{{ $image->id }}">
+                            </div>
+                        @endforeach
+=======
                     {{-- <div class="form-group">
                         <label for="latitude">Latitude</label>
                         <input type="number" name="latitude" id="latitude" class="form-control" step="0.000001" value="{{ $property->latitude }}" required>
@@ -102,6 +113,7 @@
                     <div class="form-group py-3 d-flex flex-column">
                         <label class="text-uppercase fw-bold px-2"  for="images[]">Upload images</label>
                         <input class="py-2" type="file" id="images" name="images[]" multiple>
+>>>>>>> main
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                     <a href="{{ route('admin.properties.index') }}" class="btn btn-danger">Go to back</a>

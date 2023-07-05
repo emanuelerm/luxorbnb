@@ -1,0 +1,18 @@
+#preview {
+    position: relative;
+}
+
+#edit-button-images {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-trash {
+    font-size: 0.8rem;
+}
