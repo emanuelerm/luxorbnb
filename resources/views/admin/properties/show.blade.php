@@ -11,14 +11,6 @@
                         @foreach ($images as $key => $image)
                             <div class="carousel-item {{ $key === 0 ? 'active' : '' }} position-relative">
                                 <img src="{{ asset('storage/' . $image->path) }}" alt="Property Image" width="700px" class="card-img">
-                                <form action="{{ route('admin.image.destroy', $image->id) }}" method="POST" class="ms-5 position-absolute">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type='submit' class="delete-button btn btn-danger text-white"
-                                        data-item-title="{{ $image->id }}"> <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                </form>
-
                             </div>
 
                         @endforeach
