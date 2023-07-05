@@ -1,11 +1,14 @@
+
+
+
 let options = {
     searchOptions: {
-        key: "EopC1RkBTup2TT7PwQUK9a1L3IUYg02g",
+        key: "6Zdz4adkb3YzaPURg8Zg71KMzMez217G",
         language: "it-IT",
         limit: 5,
     },
     autocompleteOptions: {
-        key: "EopC1RkBTup2TT7PwQUK9a1L3IUYg02g",
+        key: "6Zdz4adkb3YzaPURg8Zg71KMzMez217G",
         language: "it-IT",
     },
     labels: {

@@ -6,11 +6,7 @@
 
             <ul class="navbar-nav me-auto px-3">
                 <li class="nav-item">
-<<<<<<< HEAD
                     <a class="nav-link fs-4 fw-bold text-white" href="{{url('/') }}">{{ ('Home') }}</a>
-=======
-                    <a class="nav-link fs-4 fw-bold text-white" href="{{url('/') }}">{{ __('Home') }}</a>
->>>>>>> main
                 </li>
             </ul>
         </div>
@@ -22,19 +18,11 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item px-2">
-<<<<<<< HEAD
                             <a class="nav-link" href="{{ route('login') }}">{{ ('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ ('Register') }}</a>
-=======
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
->>>>>>> main
                             </li>
                         @endif
                     @else
@@ -45,7 +33,6 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right bg-black" aria-labelledby="navbarDropdown">
-<<<<<<< HEAD
                                 <a class="dropdown-item" href="{{ url('/admin') }}">{{ ('Dashboard') }}</a>
                                 <a class="dropdown-item" href="{{ url('/admin/properties') }}">{{ ('Properties') }}</a>
                                 <a class="dropdown-item" href="{{ url('/admin/profile') }}">{{ ('Profile') }}</a>
@@ -53,15 +40,6 @@
                                     onclick="event.preventDefault();
                                                        document.getElementById('logout-form').submit();">
                                     {{ ('Logout') }}
-=======
-                                <a class="dropdown-item" href="{{ url('/admin') }}">{{ __('Dashboard') }}</a>
-                                <a class="dropdown-item" href="{{ url('/admin/properties') }}">{{ __('Properties') }}</a>
-                                <a class="dropdown-item" href="{{ url('/admin/profile') }}">{{ __('Profile') }}</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                       document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
->>>>>>> main
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -99,19 +77,11 @@
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
-<<<<<<< HEAD
                                     <a class="nav-link" href="{{ route('login') }}">{{ ('Login') }}</a>
                                 </li>
                                 @if (Route::has('register'))
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('register') }}">{{ ('Register') }}</a>
-=======
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                                @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
->>>>>>> main
                                     </li>
                                 @endif
                             @else
@@ -122,21 +92,12 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right bg-black" aria-labelledby="navbarDropdown">
-<<<<<<< HEAD
                                         <a class="dropdown-item" href="{{ url('/admin') }}">{{ ('Dashboard') }}</a>
                                         <a class="dropdown-item" href="{{ url('/admin/profile') }}">{{ ('Profile') }}</a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                                document.getElementById('logout-form').submit();">
                                             {{ ('Logout') }}
-=======
-                                        <a class="dropdown-item" href="{{ url('/admin') }}">{{ __('Dashboard') }}</a>
-                                        <a class="dropdown-item" href="{{ url('/admin/profile') }}">{{ __('Profile') }}</a>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                               document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
->>>>>>> main
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
