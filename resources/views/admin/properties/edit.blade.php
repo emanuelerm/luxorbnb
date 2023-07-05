@@ -11,93 +11,105 @@
         </ul>
     </div>
 @endif
-<form action="{{ route('admin.properties.update', $property->slug) }}" method="POST" enctype="multipart/form-data">
-    <div class="container">
-            @csrf
-            @method('PUT')
+<div class="d-flex" id=wrapper>
 
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" name="title" id="title" class="form-control" value="{{ $property->title }}" required>
-            </div>
+    @include('partials.sidebar')
 
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea name="description" id="description" class="form-control" required>{{ $property->description }}</textarea>
-            </div>
+    <div id="page-content-wrapper">
 
-            <div class="form-group">
-                <label for="rooms">Rooms</label>
-                <input type="number" name="rooms" id="rooms" class="form-control" value="{{ $property->rooms }}" required>
-            </div>
-
-            <div class="form-group">
-                <label for="beds">Beds</label>
-                <input type="number" name="beds" id="beds" class="form-control" value="{{ $property->beds }}" required>
-            </div>
-
-            <div class="form-group">
-                <label for="bathrooms">Bathrooms</label>
-                <input type="number" name="bathrooms" id="bathrooms" class="form-control" value="{{ $property->bathrooms }}" required>
-            </div>
-
-            <div class="form-group">
-                <label for="square_meters">Square Meters</label>
-                <input type="number" name="square_meters" id="square_meters" class="form-control" value="{{ $property->square_meters }}" required>
-            </div>
-
-            <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" name="address" id="address" class="form-control" value="{{ $property->address }}" required>
-            </div>
-
-            <div class="form-group">
-                <p>Seleziona i Servizi:</p>
-                <div class="d-flex flex-wrap align-items-center w-100 py-4">
-
-                    @foreach ($services as $service)
-                        <div>
-                            @if ($errors->any())
-                                <input type="checkbox" name="services[]" value="{{ $service->id }}" class="form-check-input"
-                                    {{ in_array($service->id, old('service', [])) ? 'checked' : '' }}>
-                            @else
-                                <input type="checkbox" name="services[]" value="{{ $service->id }}" class="form-check-input"
-                                    {{ $property->services->contains($service) ? 'checked' : '' }}>
-                            @endif
-
-                            <label for="" class="form-check-label">{{ $service->name }}</label>
-                        </div>
-                    @endforeach
-                </div>
-                @error('services')
-                    <div class="invalid-feedback">{{ $message }}
+        <form action="{{ route('admin.properties.update', $property->slug) }}" method="POST" enctype="multipart/form-data">
+            <div class="container text-white p-5">
+                    @csrf
+                    @method('PUT')
+                    <h2 class=" py-1"> Modifica Proprietà</h2>
+                    <div class="form-group py-2">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title" class="form-control w-75" value="{{ $property->title }}" required>
                     </div>
-                @enderror
-            </div>
-            {{-- <div class="form-group">
-                <label for="latitude">Latitude</label>
-                <input type="number" name="latitude" id="latitude" class="form-control" step="0.000001" value="{{ $property->latitude }}" required>
-            </div>
 
-            <div class="form-group">
-                <label for="longitude">Longitude</label>
-                <input type="number" name="longitude" id="longitude" class="form-control" step="0.000001" value="{{ $property->longitude }}" required>
-            </div> --}}
+                    <div class="form-group py-2">
+                        <label for="description">Description</label>
+                        <textarea name="description" id="description" class="form-control w-75" required>{{ $property->description }}</textarea>
+                    </div>
 
-            <div class="form-group">
-                <label for="visible">Visible</label>
-                <select name="visible" id="visible" class="form-control">
-                    <option value="1" {{ $property->visible ? 'selected' : '' }}>Yes</option>
-                    <option value="0" {{ !$property->visible ? 'selected' : '' }}>No</option>
-                </select>
-            </div>
+                    <div class="form-group py-2">
+                        <label for="rooms">Rooms</label>
+                        <input type="number" name="rooms" id="rooms" class="form-control w-75" value="{{ $property->rooms }}" required>
+                    </div>
+
+                    <div class="form-group py-2">
+                        <label for="beds">Beds</label>
+                        <input type="number" name="beds" id="beds" class="form-control w-75" value="{{ $property->beds }}" required>
+                    </div>
+
+                    <div class="form-group py-2">
+                        <label for="bathrooms">Bathrooms</label>
+                        <input type="number" name="bathrooms" id="bathrooms" class="form-control w-75" value="{{ $property->bathrooms }}" required>
+                    </div>
+
+                    <div class="form-group py-2">
+                        <label for="square_meters">Square Meters</label>
+                        <input type="number" name="square_meters" id="square_meters" class="form-control w-75" value="{{ $property->square_meters }}" required>
+                    </div>
+
+                    <div class="form-group py-2">
+                        <label for="address">Address</label>
+                        <input type="text" name="address" id="address" class="form-control w-75" value="{{ $property->address }}" required>
+                    </div>
+
+                    <div class="form-group py-2">
+                        <h5>Select services:</h5>
+                        <div class="d-flex flex-wrap align-items-center w-100 py-2">
+
+                            @foreach ($services as $service)
+                                <div>
+                                    @if ($errors->any())
+                                        <input type="checkbox" name="services[]" value="{{ $service->id }}" class="form-check-input"
+                                            {{ in_array($service->id, old('service', [])) ? 'checked' : '' }}>
+                                    @else
+                                        <input type="checkbox" name="services[]" value="{{ $service->id }}" class="form-check-input"
+                                            {{ $property->services->contains($service) ? 'checked' : '' }}>
+                                    @endif
+
+                                    <label for="" class="form-check-label pe-3">{{ $service->name }}</label>
+                                </div>
+                            @endforeach
+                        </div>
+                        @error('services')
+                            <div class="invalid-feedback">{{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    {{-- <div class="form-group">
+                        <label for="latitude">Latitude</label>
+                        <input type="number" name="latitude" id="latitude" class="form-control" step="0.000001" value="{{ $property->latitude }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="longitude">Longitude</label>
+                        <input type="number" name="longitude" id="longitude" class="form-control" step="0.000001" value="{{ $property->longitude }}" required>
+                    </div> --}}
+
+                    <div class="form-group">
+                        <label for="visible">Visible</label>
+                        <select name="visible" id="visible" class="form-control w-25">
+                            <option value="1" {{ $property->visible ? 'selected' : '' }}>Yes</option>
+                            <option value="0" {{ !$property->visible ? 'selected' : '' }}>No</option>
+                        </select>
+                    </div>
 
 
-			<div class="form-group py-3">
-				<label class="text-uppercase fw-bold px-2"  for="images[]">Upload images</label>
-				<input class="px-3" type="file" id="images" name="images[]" multiple>
-			</div>
-            <button type="submit" class="btn btn-primary">Update</button>
-        </div>
-    </form>
+                    <div class="form-group py-3 d-flex flex-column">
+                        <label class="text-uppercase fw-bold px-2"  for="images[]">Upload images</label>
+                        <input class="py-2" type="file" id="images" name="images[]" multiple>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="{{ route('admin.properties.index') }}" class="btn btn-danger">Go to back</a>
+                </div>
+            </form>
+
+    </div>
+</div>
+
+
 @endsection
