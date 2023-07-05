@@ -1,6 +1,6 @@
 
   .primary-text {
-    color: var(--gialloMario);
+    color: var(--main-mario);
   }
 
   .second-text {
@@ -12,20 +12,29 @@
   }
 
   .secondary-bg {
-    background-color: var(--main-mario);
+    background-color: var(--icon-orange);
   }
+ .btn-dashboard{
+    background: var(--btn-dashboard);
+ }
+ .btn-dashboard:hover{
+    background-color: var(--icon-orange);
+ }
+ .card-color{
+    background: var(--card-dashboard);
+ }
 
   .rounded-full {
     border-radius: 100%;
   }
   .bg-sidebar
   {
-    background: var(--blueMario);
+    background: var(--main-sidebar);
   }
 
   #wrapper {
     overflow-x: hidden;
-    background: var(--main-mario);
+    background: var(--main-dashboard);
   }
 
   #sidebar-wrapper {
@@ -40,6 +49,7 @@
   #sidebar-wrapper .sidebar-heading {
     padding: 0.875rem 1.25rem;
     font-size: 1.2rem;
+    background: var(--sidebar-hover);
   }
 
   #sidebar-wrapper .list-group {

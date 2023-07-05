@@ -6,7 +6,7 @@
 
             <ul class="navbar-nav me-auto px-3">
                 <li class="nav-item">
-                    <a class="nav-link fs-5" href="{{url('/') }}">{{ __('Home') }}</a>
+                    <a class="nav-link fs-4 fw-bold text-white" href="{{url('/') }}">{{ __('Home') }}</a>
                 </li>
             </ul>
         </div>
@@ -32,7 +32,7 @@
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right bg-black" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ url('/admin') }}">{{ __('Dashboard') }}</a>
                                 <a class="dropdown-item" href="{{ url('/admin/properties') }}">{{ __('Properties') }}</a>
                                 <a class="dropdown-item" href="{{ url('/admin/profile') }}">{{ __('Profile') }}</a>

@@ -8,12 +8,12 @@
             <nav class="navbar navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
-                    <h2 class="fs-2 m-0">Properties</h2>
+                    <h2 class="fs-2 m-0 text-white">Properties</h2>
                 </div>
 
                 <div class="">
-                    <a class="btn btn-success" href="http://localhost:5173/"> Go fronted</a>
-                    <a class="btn btn-success" href="{{ route('admin.properties.create') }}">Create new property</a>
+                    <a class="btn btn-dashboard text-white" href="http://localhost:5173/"> Go fronted</a>
+                    <a class="btn btn-dashboard text-white" href="{{ route('admin.properties.create') }}">Create new property</a>
                 </div>
 
             </nav>
@@ -26,18 +26,18 @@
                         {{ session()->get('message') }}
                     </div>
                 @endif
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
+                    <div class="col-md-3 ">
+                        <div class="p-3 card-color shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div class="text-white">
                                 <p class="fs-5">Actions</p>
                             </div>
                             <i class="fa-regular fa-circle-play fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                         </div>
                     </div>
 
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
+                    <div class="col-md-3 card-color">
+                        <div class="p-3 card-color shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div class="text-white">
                                 <h3 class="fs-2">2</h3>
                                 <p class="fs-5">Star</p>
                             </div>
@@ -45,9 +45,9 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div class="">
+                    <div class="col-md-3 card-color">
+                        <div class="p-3 card-color shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div class="text-white">
                                 <h3 class="fs-2">38</h3>
                                 <p class="fs-5">Watch</p>
                             </div>
@@ -55,9 +55,9 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
+                    <div class="col-md-3 card-color">
+                        <div class="p-3 card-color shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div class="text-white">
                                 <h3 class="fs-2">%25</h3>
                                 <p class="fs-5">Insights</p>
                             </div>
@@ -69,9 +69,9 @@
             </div>
             <div class="container-fluid px-4">
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class=" table table-dark">
                         <thead>
-                            <tr>
+                            <tr class="card-color">
                                 <th scope="col">ID</th>
                                 <th scope="col">User_id</th>
                                 <th scope="col">Title</th>
@@ -120,7 +120,7 @@
                         </tbody>
                     </table>
                 </div>
-                {{-- {{ $properties->links('vendor.pagination.bootstrap-4') }} --}}
+                {{ $properties->links('vendor.pagination.bootstrap-4') }}
             </div>
         </div>
     </div>

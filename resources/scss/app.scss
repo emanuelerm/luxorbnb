@@ -28,4 +28,18 @@ $fa-font-path: "../fonts/webfonts" !default;
     --gialloMario:#FED200;
     --bluelightMario: #009EDB;
     --main-mario: #F4F4F4;
+    ///dashboard////
+    --main-dashboard: #05121B;
+    --main-sidebar: #1B2831;
+    --sidebar-hover: #3A82EA;
+    --card-dashboard: #0F1C25;
+    --icon-orange: #F08B5A;
+    --icon-fucsia: #B53D59;
+    --icon-viola: #692E72;
+    --btn-dashboard: #4E509A;
+    /// //////////
+}
+
+.pagination .page-item a {
+    color: red;
 }
