@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .primary-text {
     color: var(--main-mario);
 }
@@ -36,12 +37,55 @@
 }
 
 #sidebar-wrapper {
+=======
+
+  .primary-text {
+    color: var(--main-mario);
+  }
+
+  .second-text {
+    color: var(--main-mario);
+  }
+
+  .primary-bg {
+    background-color: var(--main-mario);
+  }
+
+  .secondary-bg {
+    background-color: var(--icon-orange);
+  }
+ .btn-dashboard{
+    background: var(--btn-dashboard);
+ }
+ .btn-dashboard:hover{
+    background-color: var(--icon-orange);
+ }
+ .card-color{
+    background: var(--card-dashboard);
+ }
+
+  .rounded-full {
+    border-radius: 100%;
+  }
+  .bg-sidebar
+  {
+    background: var(--main-sidebar);
+  }
+
+  #wrapper {
+    overflow-x: hidden;
+    background: var(--main-dashboard);
+  }
+
+  #sidebar-wrapper {
+>>>>>>> main
     min-height: 100vh;
     margin-left: -15rem;
     -webkit-transition: margin 0.25s ease-out;
     -moz-transition: margin 0.25s ease-out;
     -o-transition: margin 0.25s ease-out;
     transition: margin 0.25s ease-out;
+<<<<<<< HEAD
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -75,10 +119,47 @@
 }
 
 .list-group-item.active {
+=======
+  }
+
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+    background: var(--sidebar-hover);
+  }
+
+  #sidebar-wrapper .list-group {
+    width: 15rem;
+  }
+
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #menu-toggle {
+    cursor: pointer;
+  }
+
+  .list-group-item {
+    border: none;
+    padding: 20px 30px;
+    ;
+  }
+  .list-group a:hover {
+    background: var(--main-mario)!important;
+  }
+
+  .list-group-item.active {
+>>>>>>> main
     background-color: transparent;
     color: var(--gialloMario);
     font-weight: bold;
     border: none;
+<<<<<<< HEAD
 }
 
 @media (min-width: 768px) {
@@ -110,3 +191,36 @@
         margin-left: -15rem;
     }
 }
+=======
+  }
+
+  @media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+  }
+
+  @media (min-width: 562px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+  }
+>>>>>>> main

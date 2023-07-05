@@ -3,12 +3,16 @@
 @section('content')
     <div class="d-flex" id="wrapper">
         @include('partials.sidebar')
+<<<<<<< HEAD
         @extends('layouts.app')
 
 @vite('resources/scss/partials/show.scss')
     <div class="container d-flex justify-content-center align-items-center gap-4 ">
         <div class="card w-50  mx-auto mt-3">
 
+=======
+        <div class="card mx-auto mt-5" id="page-content-wrapper" style="width: 20rem">
+>>>>>>> main
             @if ($images->count() > 0)
                 <div id="imageCarousel" class="carousel slide card-image" data-bs-ride="carousel">
                     <div class="carousel-inner">
@@ -60,6 +64,7 @@
                 @endif
                 <div class="d-flex justify-content-center align-items-center mt-2">
                     <a class="btn btn-primary" href="{{ route('admin.properties.index') }}">Torna indietro</a>
+                    <a href="{{ route('admin.messages.create', ['id' => $property->id]) }}">Invia messaggio</a>
                 </div>
             </div>
     @include('partials.modal-delete') 

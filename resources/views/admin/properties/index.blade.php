@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('content')
+<<<<<<< HEAD
 @include('partials.modal-delete')
     @vite('resources/js/modal.js')
+=======
+>>>>>>> main
     <div class="d-flex" id=wrapper>
 
         @include('partials.sidebar')
@@ -67,6 +70,10 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
             </div>
             <div class="container-fluid px-4">
                 <div class="table-responsive">

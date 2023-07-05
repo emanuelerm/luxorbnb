@@ -10,3 +10,10 @@ const toggleButton = document.getElementById("menu-toggle");
 toggleButton.addEventListener("click", function () {
     el.classList.toggle("toggled");
 });
+//Menu-toggle
+const el = document.getElementById("wrapper");
+const toggleButton = document.getElementById("menu-toggle");
+
+toggleButton.addEventListener('click', function() {
+    el.classList.toggle("toggled");
+});

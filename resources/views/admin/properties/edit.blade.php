@@ -69,6 +69,10 @@
                                         <input type="checkbox" name="services[]" value="{{ $service->id }}" class="form-check-input"
                                             {{ $property->services->contains($service) ? 'checked' : '' }}>
                                     @endif
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
                                     <label for="" class="form-check-label pe-3">{{ $service->name }}</label>
                                 </div>
                             @endforeach
@@ -78,6 +82,7 @@
                             </div>
                         @enderror
                     </div>
+<<<<<<< HEAD
                     <div class="media me-4 d-flex gap-3">
                         @foreach ($property->images as $image)
                             <div id="preview">
@@ -85,6 +90,30 @@
                                 <input type="checkbox" name="images_to_delete[]" value="{{ $image->id }}">
                             </div>
                         @endforeach
+=======
+                    {{-- <div class="form-group">
+                        <label for="latitude">Latitude</label>
+                        <input type="number" name="latitude" id="latitude" class="form-control" step="0.000001" value="{{ $property->latitude }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="longitude">Longitude</label>
+                        <input type="number" name="longitude" id="longitude" class="form-control" step="0.000001" value="{{ $property->longitude }}" required>
+                    </div> --}}
+
+                    <div class="form-group">
+                        <label for="visible">Visible</label>
+                        <select name="visible" id="visible" class="form-control w-25">
+                            <option value="1" {{ $property->visible ? 'selected' : '' }}>Yes</option>
+                            <option value="0" {{ !$property->visible ? 'selected' : '' }}>No</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group py-3 d-flex flex-column">
+                        <label class="text-uppercase fw-bold px-2"  for="images[]">Upload images</label>
+                        <input class="py-2" type="file" id="images" name="images[]" multiple>
+>>>>>>> main
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                     <a href="{{ route('admin.properties.index') }}" class="btn btn-danger">Go to back</a>
