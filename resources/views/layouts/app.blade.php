@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    @yield('script')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,13 +22,9 @@
 <body>
     <div id="app">
         @include('partials.header')
-        <div class="">
-            <div class="">
-                @yield('content')
-            </div>
+        <div id="">
+            @yield('content')
         </div>
-        {{-- @include('partials.offCanvas') --}}
-
     </div>
 </body>
 

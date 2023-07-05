@@ -3,8 +3,6 @@
 @section('content')
     <div class="d-flex" id="wrapper">
         @include('partials.sidebar')
-        @extends('layouts.app')
-
 @vite('resources/scss/partials/show.scss')
     <div class="container d-flex justify-content-center align-items-center gap-4 ">
         <div class="card w-50  mx-auto mt-3">
@@ -36,7 +34,7 @@
             @endif
 
     </div>
-    <div class="card-body card-body-content w-50 border m-3 p-3">
+    <div class="card card-body card-body-content w-50 border m-3 p-3">
         <div class="text-center">
                 <h5>Description:</h5>
              </div>
@@ -63,6 +61,6 @@
                     <a href="{{ route('admin.messages.create', ['id' => $property->id]) }}">Invia messaggio</a>
                 </div>
             </div>
-    @include('partials.modal-delete') 
+    @include('partials.modal-delete')
     </div>
 @endsection

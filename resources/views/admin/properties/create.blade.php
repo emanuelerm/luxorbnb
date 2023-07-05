@@ -9,14 +9,13 @@
 @endsection
 <title>Aggiunge Propietà</title>
 
-@vite('resources/js/tomtomconfig.js','resources/js/tomtom.js' )
+@vite('resources/js/tomtomconfig.js')
 @section('content')
-	<div class="d-flex" id=wrapper>
+<div class="d-flex" id=wrapper>
 
-		@include('partials.sidebar')
+    @include('partials.sidebar')
 
-		<div id="page-content-wrapper">
-
+    <div id="page-content-wrapper">
 			<div class="container p-3" style="width: 70%">
 				<div class="card bg-dark text-white">
 					<div class="card-body p-5">

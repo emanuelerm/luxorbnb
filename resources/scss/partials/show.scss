@@ -11,11 +11,6 @@ main {
             max-height: 400px;
             object-fit: cover;
         }
-        form {
-            bottom: 2%;
-            right: 45%;
-            opacity: 0;
-        }
     }
     &:hover form {
         opacity: 1;
@@ -28,11 +23,6 @@ main {
         scale: 1.4;
         transition: 2s;
     }
-    .card-body-content {
-        position: absolute;
-        top: 0%;
-        opacity: 0;
-    }
     &:hover .card-body-content {
         top: 100%;
         transition: 2s;
@@ -42,4 +32,8 @@ main {
     img {
         transition: 2s;
     }
+}
+
+.card-body-content {
+    background-color: #fff;
 }
