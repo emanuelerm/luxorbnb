@@ -8,6 +8,7 @@ use App\Models\Property;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
 
+
 class MessageController extends Controller
 {
     /**
@@ -17,11 +18,11 @@ class MessageController extends Controller
      */
     public function index()
     {
+
         $messages = Message::all();
 
         return view('admin.messages.index', compact('messages'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -29,6 +30,7 @@ class MessageController extends Controller
      */
     public function create($id)
     {
+
         $property = Property::find($id);
         // dd($property);
         return view('admin.messages.create', compact('property'));
@@ -56,6 +58,8 @@ class MessageController extends Controller
             'message' => $validatedData['message'],
             'property_id' => $id,
         ]);
+
+
         return redirect()->route('admin.properties.show')->with('success', 'Il messaggio è stato inviato con successo!');
     }
 
