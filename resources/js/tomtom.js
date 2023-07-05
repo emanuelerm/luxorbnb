@@ -1,13 +1,5 @@
+import { services } from "@tomtom-international/web-sdk-services";
+import SearchBox from "@tomtom-international/web-sdk-plugin-searchbox";
 
-import tt from "@tomtom-international/web-sdk-services"
-
-tt.services
-  .copyrightsV2({
-    key: "6Zdz4adkb3YzaPURg8Zg71KMzMez217G",
-  })
-  .then(function (results) {
-    console.log("Copyrights", results)
-  })
-  .catch(function (reason) {
-    console.log("Copyrights", reason)
-  })
+const ttSearchBox = new SearchBox(services, options);
+const searchBoxHTML = ttSearchBox.getSearchBoxHTML();

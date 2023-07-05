@@ -8,3 +8,41 @@ $fa-font-path: "../fonts/webfonts" !default;
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
 @import "~bootstrap/scss/bootstrap";
+@import "./partials/sidebar.scss";
+@import "./partials/header.scss";
+
+:root {
+    --main-bg-color: #009d63;
+    --main-text-color: #009d63;
+    --second-text-color: #bbbec5;
+    --second-bg-color: #c1efde;
+    --colorBlue: #131661;
+    --colorWhite: #ffffff;
+    --lightgreen: #00b67a;
+    --colorBlack: #000000;
+    --secondaryBlue: #090e38;
+    --color-cards: #232b5c;
+    --redMario: #e60012;
+    --blueMario: #0060ad;
+    --greenMario: #46ad37;
+    --gialloMario: #fed200;
+    --bluelightMario: #009edb;
+    --main-mario: #f4f4f4;
+    ///dashboard////
+    --main-dashboard: #05121b;
+    --main-sidebar: #1b2831;
+    --sidebar-hover: #3a82ea;
+    --card-dashboard: #0f1c25;
+    --icon-orange: #f08b5a;
+    --icon-fucsia: #b53d59;
+    --icon-viola: #692e72;
+    --btn-dashboard: #4e509a;
+    /// //////////
+}
+
+.pagination .page-item a {
+    color: red;
+}
+// label{
+//     font-size: 20px;
+// }
