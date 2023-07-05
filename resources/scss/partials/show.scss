@@ -1,0 +1,41 @@
+.card {
+    position: relative;
+    .card-image{
+        z-index: 1;
+        & img{
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+        form{
+            bottom: 2%;
+            right: 45%;
+            opacity: 0;
+        }
+    }
+    &:hover form{
+        opacity: 1;
+        transition: 2s;
+    }
+    &:not(:hover) form{
+        transition: 2s;
+    }
+    &:hover img {
+      scale: 1.4;
+      transition: 2s;
+    }
+    .card-body-content {
+      position: absolute;
+      top: 46%;
+      right: 0px;
+      height: 0px;
+    }
+    &:hover .card-body-content {
+      top: 100%;
+      transition: 2s;
+    }
+    &:not(:hover) .card-body-content,
+    img {
+      transition: 2s;
+    }
+}
