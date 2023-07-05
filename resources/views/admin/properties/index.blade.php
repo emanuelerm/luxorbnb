@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="">
-                    <a class="btn btn-dashboard text-white" href="http://localhost:5173/"> Go fronted</a>
+                    <a class="btn btn-dashboard text-white" href="http://localhost:5173/"> Go to frontend</a>
                     <a class="btn btn-dashboard text-white" href="{{ route('admin.properties.create') }}">Create new property</a>
                 </div>
 
@@ -27,7 +27,7 @@
                     </div>
                 @endif
                     <div class="col-md-3 ">
-                        <div class="p-3 card-color shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <div class="p-4 card-color shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div class="text-white">
                                 <p class="fs-5">Actions</p>
                             </div>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 card-color">
+                    <div class="col-md-3">
                         <div class="p-3 card-color shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div class="text-white">
                                 <h3 class="fs-2">2</h3>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 card-color">
+                    <div class="col-md-3">
                         <div class="p-3 card-color shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div class="text-white">
                                 <h3 class="fs-2">38</h3>
@@ -55,7 +55,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 card-color">
+                    <div class="col-md-3">
                         <div class="p-3 card-color shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div class="text-white">
                                 <h3 class="fs-2">%25</h3>
