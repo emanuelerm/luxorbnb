@@ -146,13 +146,17 @@ class PropertyController extends Controller
 
         $imagesToDelete = $request->input('images_to_delete');
         if ($imagesToDelete) {
-            foreach ($imagesToDelete as $imageId) {
-                $image = Image::findOrFail($imageId);
+            foreach ($imagesToDelete as $imageToDelete) {
+                $jsonImage = json_decode($imageToDelete, true);
+
+                $image = Image::findOrFail($jsonImage['id']);
+                Storage::delete($jsonImage['path']);
                 // Effettua le operazioni necessarie per eliminare l'immagine,
                 // come eliminare il record dal database e il file fisico dell'immagine.
                 $image->delete();
             }
         }
+
 
         return redirect()->route('admin.properties.show', compact('property'))->with('message', "{$property->title} è stato aggiornato correttamente");
     }

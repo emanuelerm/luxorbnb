@@ -74,7 +74,7 @@
 
 
 	<div class="container-1" id="container">
-		<div class="form-container sign-up-container">
+		<div class="form-container sign-in-container">
 			<form method="POST" action="{{ route('register') }}">
 				@csrf
 
@@ -106,14 +106,12 @@
 				<label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 				<input id="password" type="password" class="form-control input-style @error('password') is-invalid @enderror"
 					name="password" required autocomplete="new-password">
-				@error('password')
-					<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
 				<label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 				<input id="password-confirm" type="password" class="form-control input-style" name="password_confirmation" required
 					autocomplete="new-password">
+					<span id="wrong-password" class="invalid-feedback" role="alert">
+						<strong class="text-danger"></strong>
+					</span>
 				<label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Date_of_birth') }}</label>
 				<input id="date_of_birth" type="date"
 					class="form-control mb-4 input-style @error('date_of_birth') is-invalid @enderror" name="date_of_birth"
@@ -123,10 +121,10 @@
 						<strong>{{ $message }}</strong>
 					</span>
 				@enderror
-				<button type="submit" class="mb-4">{{ __('Register') }}</button>
+				<button id="register-button" type="submit" class="mb-4">{{ __('Register') }}</button>
 			</form>
 		</div>
-		<div class="form-container sign-in-container">
+		<div class="form-container sign-up-container">
 			<form method="POST" action="{{ route('login') }}">
 				@csrf
 				<h1 class="mb-5">Accedi</h1>
@@ -159,12 +157,12 @@
 				<div class="overlay-panel overlay-left">
 					<h1>Benvenuto!</h1>
 					<p>Inserisci le tue credenziali per registrarti e accedere al tuo spazio privato</p>
-					<button class="ghost" id="signIn">Login</button>
+					<button class="ghost" id="signIn">Register</button>
 				</div>
 				<div class="overlay-panel overlay-right">
 					<h1>Bentornato!</h1>
 					<p>Inserisci la tua mail e la password per accedere al tuo spazio privato</p>
-					<button class="ghost" id="signUp">Register</button>
+					<button class="ghost" id="signUp">Login</button>
 				</div>
 			</div>
 		</div>

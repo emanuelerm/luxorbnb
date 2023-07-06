@@ -30,7 +30,7 @@ class UpdatePropertyRequest extends FormRequest
             'beds' => 'required|min:1',
             'bathrooms' => 'required|min:1',
             'square_meters' => 'required|integer|min:2',
-            'address' => 'required|min:5',
+            'address' => 'nullable|min:5',
             'visible' => 'boolean'
         ];
     }

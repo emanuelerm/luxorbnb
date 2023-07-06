@@ -32,12 +32,14 @@ class StorePropertyRequest extends FormRequest
             'bathrooms' => 'required|numeric|integer|min:1',
             'square_meters' => 'required|numeric|integer|min:2',
             'address' => 'required',
+            'services' => 'required',
             // 'images' => 'required',
             'latitude' => 'nullable',
             'longitude' => 'nullable',
             'visible' => 'nullable',
         ];
     }
+
     public function messages()
     {
         return [
@@ -57,6 +59,7 @@ class StorePropertyRequest extends FormRequest
             'square_meters.min' => 'L\'appartamento deve essere almeno di 70 metri quadri',
             'address.required' => 'Il campo address è obbligatorio',
             'address.min' => 'L\'address deve contenere almeno 5 caratteri',
+            'services.required' => 'È richiesto almeno un servizio',
         ];
     }
 }

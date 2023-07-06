@@ -1,6 +1,3 @@
-
-
-
 let options = {
     searchOptions: {
         key: "6Zdz4adkb3YzaPURg8Zg71KMzMez217G",
