@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
+
 class Property extends Model
 {
     use HasFactory;
@@ -37,7 +38,8 @@ class Property extends Model
 
     public function messages()
     {
-        return $this->hasMany(Message::class);
+
+        return $this->hasMany(Message::class)->where('user_id', auth()->id());
     }
 
     public function images()
@@ -54,5 +56,5 @@ class Property extends Model
     {
         return $this->belongsToMany(Offer::class);
     }
-    
+
 }

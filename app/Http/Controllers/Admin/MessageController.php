@@ -7,6 +7,7 @@ use App\Models\Message;
 use App\Models\Property;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+use Illuminate\Support\Facades\Auth;
 
 
 class MessageController extends Controller
@@ -52,12 +53,21 @@ class MessageController extends Controller
         ]);
 
         // Crea un nuovo messaggio nel database
-        Message::create([
-            'title' => $validatedData['title'],
-            'email' => $validatedData['email'],
-            'message' => $validatedData['message'],
-            'property_id' => $id,
-        ]);
+        $user = Auth::user();
+        $property = Property::findOrFail($id);
+
+        $message = new Message();
+        $message->email = $validatedData['email'];
+        $message->message = $validatedData['message'];
+
+        // $user->messages()->save($message);
+        // $property->messages()->save($message);
+        // Message::create([
+        //     'title' => $validatedData['title'],
+        //     'email' => $validatedData['email'],
+        //     'message' => $validatedData['message'],
+        //     'property_id' => $id,
+        // ]);
 
 
         return redirect()->route('admin.properties.show')->with('success', 'Il messaggio è stato inviato con successo!');
@@ -71,7 +81,10 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
-        //
+        // $user = Auth::user();
+        // $messages = $user->messages()->get();
+
+        return view('admin.messages.show', compact('messages'));
     }
 
     /**

@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
+    Route::get('/messages', [MessageController::class, 'show'])->name('messages.show');
     Route::get('/messages/create/{id}', [MessageController::class, 'create'])->name('messages.create');
     Route::post('/messages/store/{id}', [MessageController::class, 'store'])->name('messages.store');
 });
