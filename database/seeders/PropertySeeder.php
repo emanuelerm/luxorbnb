@@ -30,6 +30,7 @@ class PropertySeeder extends Seeder
             $newProperty->address = $property['address'];
             $newProperty->latitude = $property['latitude'];
             $newProperty->longitude = $property['longitude'];
+            $newProperty->slug = $property['slug'];
             $newProperty->visible = $property['visible'];
             $newProperty->save();
         }
