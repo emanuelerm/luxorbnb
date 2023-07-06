@@ -14,13 +14,6 @@ class PropertyController extends Controller
     public function index()
     {
         $properties = Property::with('images', 'services')->paginate(5);
-        // $services = Service::all();
-        // $images = Image::all();
-        // $data = [
-        //     'properties' => $properties,
-        //     'services' => $services,
-        //     'images' => $images,
-        // ];
         return response()->json([
             "success" => true,
             "results" => $properties
