@@ -73,8 +73,8 @@
 					<table class=" table table-dark">
 						<thead>
 							<tr class="card-color">
-								<th scope="col">ID</th>
-								<th scope="col">User_id</th>
+								{{-- <th scope="col">ID</th>
+								<th scope="col">User_id</th> --}}
 								<th scope="col">Title</th>
 								<th scope="col">Description</th>
 								<th scope="col">Rooms</th>
@@ -89,8 +89,8 @@
 							@foreach ($properties as $property)
 								@if ($property->user_id == $user->id)
 									<tr>
-										<th scope="row">{{ $property->id }}</th>
-										<td>{{ $property->user_id }}</td>
+										{{-- <th scope="row">{{ $property->id }}</th>
+										<td>{{ $property->user_id }}</td> --}}
 										<td>{{ $property->title }}</td>
 										<td class="description-cell">{{ $property->description }}</td>
 										<td>{{ $property->rooms }}</td>
