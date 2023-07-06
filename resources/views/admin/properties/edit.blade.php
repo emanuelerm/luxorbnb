@@ -86,6 +86,10 @@
                             </div>
                         @endforeach
                     </div>
+                    <div class="form-group py-3 d-flex flex-column">
+                        <label class="text-uppercase fw-bold px-4"  for="images[]">Upload images</label>
+                        <input class="py-2 px-4" type="file" id="images" name="images[]" multiple>
+                    </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                     <a href="{{ route('admin.properties.index') }}" class="btn btn-danger">Go to back</a>
                 </div>
