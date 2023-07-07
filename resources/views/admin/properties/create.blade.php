@@ -9,7 +9,7 @@
 @endsection
 <title>Aggiunge Propietà</title>
 
-@vite(['resources/js/tomtomconfig.js', 'resources/scss/partials/searchboxTomTom.scss'])
+@vite(['resources/js/tomtomconfig.js', 'resources/scss/partials/searchboxTomTom.scss', 'resources/js/validation-create.js'])
 @section('content')
 <div class="d-flex" id=wrapper>
 
@@ -174,12 +174,13 @@
                                     <div class="form-group py-3 d-flex flex-column">
                                         <label class="text-uppercase fw-bold" for="images[]">Upload images *</label>
                                         <input class="py-2" type="file" id="images" name="images[]" multiple>
+                                        <div id="image-validation-message"></div>
                                     </div>
                                 </div>
                                 {{-- //IMAGES INPUT --}}
                                 <div class="m-4 d-flex align-items-center row ">
                                     <div class="d-flex">
-                                        <button type="submit" class="btn btn-primary">Add new property</button>
+                                        <button id="submit" type="submit" class="btn btn-primary">Add new property</button>
                                         <a href="{{ route('admin.properties.index') }}" class="btn btn-danger ms-3">Go to back</a>
                                     </div>
                                 </div>

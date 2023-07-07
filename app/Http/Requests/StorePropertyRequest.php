@@ -30,7 +30,7 @@ class StorePropertyRequest extends FormRequest
             'rooms' => 'required|numeric|integer|min:1',
             'beds' => 'required|numeric|integer|min:1',
             'bathrooms' => 'required|numeric|integer|min:1',
-            'square_meters' => 'required|numeric|integer|min:2',
+            'square_meters' => 'required|numeric|integer|min:70',
             'address' => 'required',
             'services' => 'required',
             // 'images' => 'required',
