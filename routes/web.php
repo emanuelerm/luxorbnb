@@ -30,6 +30,9 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('/messages', MessageController::class);
+    Route::get('/messages/create/{id}', [MessageController::class, 'create'])->name('messages.create');
+    Route::post('/messages/{property}', [MessageController::class, 'store'])->name('messages.store');
+    Route::get('/admin/properties/{property}', [PropertyController::class, 'show'])->name('admin.properties.show');
 });
 
 require __DIR__.'/auth.php';
