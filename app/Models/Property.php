@@ -54,5 +54,5 @@ class Property extends Model
     {
         return $this->belongsToMany(Offer::class);
     }
-    
+
 }

@@ -1,8 +1,9 @@
 <!-- resources/views/messages/create.blade.php -->
-<form method="POST" action="{{ route('admin.messages.store', $property->id) }}">
+<form method="POST" action="{{ route('admin.messages.store', ['property' => $property->id]) }}">
     @csrf
-    <label for="name">Nome:</label>
-    <input type="text" id="name" name="name" required>
+
+    <label for="title">Nome:</label>
+    <input type="text" id="title" name="title" required>
 
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>

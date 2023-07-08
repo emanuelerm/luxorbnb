@@ -18,9 +18,10 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $messages = Message::all();
+        $user = Auth::user();
+        $messages = $user->messages;
 
-        return view('admin.messages.index', compact('messages'));
+        return view('admin.messages.index')->with('messages', $messages);
     }
 
     /**
@@ -40,33 +41,31 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMessageRequest $request, $id)
+    public function store(StoreMessageRequest $request, Property $property)
     {
-        // Validazione dei dati del modulo
+
         $validatedData = $request->validate([
+
             'title' => 'required',
             'email' => 'required|email',
             'message' => 'required',
-        ]);
 
-        // Crea un nuovo messaggio nel database
-        $user = Auth::user();
-        $property = Property::findOrFail($id);
+        ]);
+        // $user = Auth::user();
+        // $property = Property::findOrFail($id);
 
         $message = new Message();
+        $message->title = $validatedData['title'];
         $message->email = $validatedData['email'];
         $message->message = $validatedData['message'];
+        $message->property_id = $property->id; // Assegna l'ID della proprietà
+        $message->user_id = Auth::id();
+        $message->save();
 
-        // $user->messages()->save($message);
         // $property->messages()->save($message);
-        // Message::create([
-        //     'title' => $validatedData['title'],
-        //     'email' => $validatedData['email'],
-        //     'message' => $validatedData['message'],
-        //     'property_id' => $id,
-        // ]);
-
-        return redirect()->route('admin.properties.show')->with('success', 'Il messaggio è stato inviato con successo!');
+        // dd($property);
+        return redirect()->route('admin.properties.show', ['property' => $property->id])
+        ->with('success', 'Messaggio inviato con successo!');
     }
 
     /**
@@ -76,10 +75,11 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
+        $property = $message->property;
         // $user = Auth::user();
         // $messages = $user->messages()->get();
 
-        return view('admin.messages.show', compact('messages'));
+        return view('admin.messages.show', compact('message', 'property'));
     }
 
     /**
