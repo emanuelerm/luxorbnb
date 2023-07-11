@@ -13,7 +13,7 @@ class PropertyController extends Controller
 {
     public function index()
     {
-        $properties = Property::with('images', 'services')->paginate(5);
+        $properties = Property::with('images', 'services', 'messages')->paginate(5);
         return response()->json([
             "success" => true,
             "results" => $properties
@@ -22,7 +22,7 @@ class PropertyController extends Controller
 
     public function show($slug)
     {
-        $property = Property::with('images', 'services')->where('slug', $slug)->first();
+        $property = Property::with('images', 'services', 'messages')->where('slug', $slug)->first();
         return response()->json([
             "success" => true,
             "results" => $property

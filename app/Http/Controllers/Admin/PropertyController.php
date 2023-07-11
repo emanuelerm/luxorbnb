@@ -63,7 +63,7 @@ class PropertyController extends Controller
     // dd($request);
     if ($request->hasFile('images')) {
         foreach ($request->file('images') as $image) {
-            $image_path = Storage::put('uploads', $image);
+            $image_path = Storage::put('uploads/', $image);
             // dd($image_path);
 
             // $image_path = Str::replace('uploads', 'public/storage/uploads', $image_path);
