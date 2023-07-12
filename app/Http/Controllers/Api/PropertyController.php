@@ -72,9 +72,9 @@ class PropertyController extends Controller
         ], 200);
     }
 
-    public function show($slug)
+    public function show()
     {
-        $property = Property::with('images', 'services')->where('slug', $slug)->first();
+        $property = Property::with('images', 'services')->get();
 
         return response()->json([
             'success' => true,
