@@ -33,7 +33,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('/messages', MessageController::class);
     Route::get('/messages/create/{id}', [MessageController::class, 'create'])->name('messages.create');
     Route::post('/messages/{property}', [MessageController::class, 'store'])->name('messages.store');
-    // Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
+    // Route::post('/messages', [MessageController::class, 'index']);
     Route::get('/admin/properties/{property}', [PropertyController::class, 'show'])->name('admin.properties.show');
 
 

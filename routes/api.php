@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\API\MessageController;
+use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\PropertyController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,4 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/properties', [PropertyController::class, 'index']);
 Route::get('/properties/{slug}', [PropertyController::class, 'show']);
-Route::post('/messages', [MessageController::class, 'index']);
+
+Route::get('/messages', [MessageController::class, 'index']); // Elenco dei messaggi
+Route::post('/messages', [MessageController::class, 'store']); // Creazione di un nuovo messaggio
