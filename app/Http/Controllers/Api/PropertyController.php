@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Property;
 use App\Models\Service;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
@@ -16,7 +17,7 @@ class PropertyController extends Controller
         $bedsMin = $request->query('beds_min');
         $radius = $request->query('radius');
 
-        $properties = Property::with('services');
+        $properties = Property::with('services', 'images');
         if (!empty($service_id)) {
             $properties->whereHas('services', function ($query) use ($service_id) {
                 $query->where('services.id', $service_id);
@@ -83,6 +84,12 @@ class PropertyController extends Controller
 
     private function calculateBoundingBox($latitude, $longitude, $radius)
     {
+        $property = Property::with('images', 'services')->where('slug', $slug)->first();
+
+        return response()->json([
+            'success' => true,
+            'results' => $property,
+        ]);
         $earthRadius = 6371; // Raggio approssimativo della Terra in km
 
         $minLat = $latitude - rad2deg($radius / $earthRadius);
