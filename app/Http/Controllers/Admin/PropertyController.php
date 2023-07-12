@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use App\Models\Property;
-use App\Models\Service;
-use App\Models\Image;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
+use App\Models\Image;
+use App\Models\Property;
+use App\Models\Service;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use PHPUnit\Framework\MockObject\ReturnValueNotConfiguredException;
 
 class PropertyController extends Controller
 {
@@ -24,6 +24,7 @@ class PropertyController extends Controller
     {
         $properties = Property::paginate(3);
         $user = Auth::user();
+
         return view('admin.properties.index', compact('properties', 'user'));
     }
 
@@ -42,61 +43,80 @@ class PropertyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePropertyRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StorePropertyRequest $request)
-{
-    $user = Auth::user();
-    $form_data = $request->validated();
-    $newProperty = new Property();
-    $newProperty->user_id = $user->id;
-    $slug = $this->getSlug($form_data['title'], 'form_data->title');
-    $form_data['slug'] = $slug;
-    // dd($request);
-    $newProperty->fill($form_data);
-    $newProperty->save();
+    {
+        $user = Auth::user();
+        $form_data = $request->validated();
+        $newProperty = new Property();
+        $newProperty->user_id = $user->id;
+        $slug = $this->getSlug($form_data['title'], 'form_data->title');
+        $form_data['slug'] = $slug;
+        // dd($request);
+        $newProperty->fill($form_data);
+        $newProperty->save();
 
-    if ($request->has('services')) {
-        $newProperty->services()->sync($request->services);
-    }
-    // dd($request);
-    if ($request->hasFile('images')) {
-        foreach ($request->file('images') as $image) {
-            $image_path = Storage::put('uploads/', $image);
-            // dd($image_path);
+     // GET LONGITUDE AND LATITUDE
+        $key = '6Zdz4adkb3YzaPURg8Zg71KMzMez217G'; // inserite la vostra chiave
+        $addressApi = $form_data['address'];
+        $addressUrl = Str::of($addressApi)->slug('%20');
+        $url = 'https://api.tomtom.com/search/2/geocode/'.$addressUrl.'.json?storeResult=false&limit=1&extendedPostalCodesFor=Str&view=Unified&key='.$key;
+        $response = Http::get($url);
+        if ($response->successful()) {
+            $data = $response->json();
 
-            // $image_path = Str::replace('uploads', 'public/storage/uploads', $image_path);
+            if (!empty($data['results'])) {
+                $results = $data['results']; // Accesso all'array "results"
+                $firstResult = $results[0]; // Prendi il primo elemento dell'array
 
-            $newProperty->images()->create([
-                'property_id' => $newProperty->id,
-                'path' => $image_path
-            ]);
+                $position = $firstResult['position']; // Accesso all'oggetto "position"
+                $lat = $position['lat']; // Recupera il valore "lat"
+                $lon = $position['lon']; // Recupera il valore "lon"
+
+                // Salva i dati nella tua tabella del database
+                $form_data['latitude'] = $lat;
+                $form_data['longitude'] = $lon;
+            }
         }
-    }
 
-    return redirect()->route('admin.properties.index');
-}
+        if ($request->has('services')) {
+            $newProperty->services()->sync($request->services);
+        }
+        // dd($request);
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $image_path = Storage::put('uploads/', $image);
+                // dd($image_path);
+
+                // $image_path = Str::replace('uploads', 'public/storage/uploads', $image_path);
+
+                $newProperty->images()->create([
+                    'property_id' => $newProperty->id,
+                    'path' => $image_path,
+                ]);
+            }
+        }
+
+        return redirect()->route('admin.properties.index');
+    }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
     public function show(Property $property)
     {
-
         $services = Service::all();
         $images = Image::where('property_id', $property->id)->get();
         // $images = $property->images;
-        return view('admin.properties.show', compact('property', 'services','images'));
+        return view('admin.properties.show', compact('property', 'services', 'images'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
     public function edit(Property $property)
@@ -105,14 +125,13 @@ class PropertyController extends Controller
         //     abort(403);
         // }
         $services = Service::all();
+
         return view('admin.properties.edit', compact('property', 'services'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePropertyRequest  $request
-     * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
     public function update(UpdatePropertyRequest $request, Property $property)
@@ -139,7 +158,7 @@ class PropertyController extends Controller
 
                 $property->images()->create([
                     'property_id' => $property->id,
-                    'path' => $image_path
+                    'path' => $image_path,
                 ]);
             }
         }
@@ -157,37 +176,35 @@ class PropertyController extends Controller
             }
         }
 
-
         return redirect()->route('admin.properties.show', compact('property'))->with('message', "{$property->title} è stato aggiornato correttamente");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
     public function destroy(Property $property)
     {
         $property->delete();
+
         return redirect()->route('admin.properties.index')->with('message', "{$property->title} è stato cancellato correttamente");
     }
 
     private function getSlug($title)
     {
-        $slug = Str::of($title)->slug("-");
+        $slug = Str::of($title)->slug('-');
         $count = 1;
 
         // Prendi il primo post il cui slug è uguale a $slug
         // se è presente allora genero un nuovo slug aggiungendo -$count
-        while( Property::where("slug", $slug)->first() ) {
-            $slug = Str::of($title)->slug("-") . "-{$count}";
-            $count++;
+        while (Property::where('slug', $slug)->first()) {
+            $slug = Str::of($title)->slug('-')."-{$count}";
+            ++$count;
         }
 
         return $slug;
     }
-
 
     // private function getSlug($property)
     // {
