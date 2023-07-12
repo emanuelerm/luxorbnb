@@ -17,7 +17,7 @@ class PropertyController extends Controller
         $bedsMin = $request->query('beds_min');
         $radius = $request->query('radius');
 
-        $properties = Property::with('services', 'images');
+        $properties = Property::with('services');
         if (!empty($service_id)) {
             $properties->whereHas('services', function ($query) use ($service_id) {
                 $query->where('services.id', $service_id);
@@ -72,14 +72,13 @@ class PropertyController extends Controller
         ], 200);
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        $property = Property::with('images', 'services')->where('id', $id)->first();
+        $property = Property::with('images', 'services')->where('slug', $slug)->first();
 
         return response()->json([
             'success' => true,
             'results' => $property,
-
         ]);
     }
 

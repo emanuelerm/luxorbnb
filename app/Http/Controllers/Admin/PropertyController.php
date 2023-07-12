@@ -53,11 +53,8 @@ class PropertyController extends Controller
         $newProperty->user_id = $user->id;
         $slug = $this->getSlug($form_data['title'], 'form_data->title');
         $form_data['slug'] = $slug;
-        // dd($request);
-        $newProperty->fill($form_data);
-        $newProperty->save();
 
-     // GET LONGITUDE AND LATITUDE
+        // GET LONGITUDE AND LATITUDE
         $key = '6Zdz4adkb3YzaPURg8Zg71KMzMez217G'; // inserite la vostra chiave
         $addressApi = $form_data['address'];
         $addressUrl = Str::of($addressApi)->slug('%20');
@@ -80,13 +77,17 @@ class PropertyController extends Controller
             }
         }
 
+        // dd($form_data);
+        $newProperty->fill($form_data);
+        $newProperty->save();
+
         if ($request->has('services')) {
             $newProperty->services()->sync($request->services);
         }
         // dd($request);
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
-                $image_path = Storage::put('uploads/', $image);
+                $image_path = Storage::put('uploads', $image);
                 // dd($image_path);
 
                 // $image_path = Str::replace('uploads', 'public/storage/uploads', $image_path);
@@ -204,6 +205,10 @@ class PropertyController extends Controller
         }
 
         return $slug;
+    }
+
+    private function getGeoCod($address)
+    {
     }
 
     // private function getSlug($property)
