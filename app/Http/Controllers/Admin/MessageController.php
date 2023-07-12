@@ -18,8 +18,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $messages = $user->messages;
+        $messages = Message::whereHas('property', function ($query) {
+            $query->where('user_id', Auth::id());
+        })->get();
 
         return view('admin.messages.index')->with('messages', $messages);
     }
@@ -43,13 +44,10 @@ class MessageController extends Controller
      */
     public function store(StoreMessageRequest $request, Property $property)
     {
-
         $validatedData = $request->validate([
-
             'title' => 'required',
             'email' => 'required|email',
             'message' => 'required',
-
         ]);
         // $user = Auth::user();
         // $property = Property::findOrFail($id);
