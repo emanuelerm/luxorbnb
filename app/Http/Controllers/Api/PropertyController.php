@@ -82,9 +82,9 @@ class PropertyController extends Controller
         ]);
     }
 
-    private function calculateBoundingBox($latitude, $longitude, $radius, $slug)
+    private function calculateBoundingBox($latitude, $longitude, $radius)
     {
-        $property = Property::with('images', 'services')->where('slug', $slug)->first();
+        $property = Property::with('images', 'services')->get();
 
         return response()->json([
             'success' => true,
