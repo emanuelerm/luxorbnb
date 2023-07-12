@@ -36,10 +36,10 @@ class PropertyController extends Controller
             // Effettua una richiesta all'API di TomTom per ottenere le coordinate della città
             $client = new Client();
             $response = $client->get("https://api.tomtom.com/search/2/search/{$city}.json", [
-                'query' => [
-                    'key' => '6Zdz4adkb3YzaPURg8Zg71KMzMez217G',
-                    'limit' => 1,
-                ],
+             'query' => [
+              'key' => '6Zdz4adkb3YzaPURg8Zg71KMzMez217G',
+              'limit' => 1,
+             ],
             ]);
 
             // Verifica la risposta dall'API di TomTom
@@ -55,20 +55,20 @@ class PropertyController extends Controller
 
                 // Filtra le proprietà in base al bounding box
                 $properties->whereBetween('latitude', [$bbox['minLat'], $bbox['maxLat']])
-                    ->whereBetween('longitude', [$bbox['minLng'], $bbox['maxLng']]);
+                 ->whereBetween('longitude', [$bbox['minLng'], $bbox['maxLng']]);
             }
         }
 
         $properties = $properties->paginate(10);
         $services = Service::all();
         $data = [
-            'properties' => $properties,
-            'services' => $services,
+         'properties' => $properties,
+         'services' => $services,
         ];
 
         return response()->json([
-            'success' => true,
-            'results' => $properties,
+         'success' => true,
+         'results' => $properties,
         ], 200);
     }
 
@@ -77,31 +77,25 @@ class PropertyController extends Controller
         $property = Property::with('images', 'services')->where('id', $id)->first();
 
         return response()->json([
-            'success' => true,
-            'results' => $property,
+         'success' => true,
+         'results' => $property,
         ]);
     }
 
-    private function calculateBoundingBox($latitude, $longitude, $radius)
-    {
-        $property = Property::with('images', 'services')->get();
+       private function calculateBoundingBox($latitude, $longitude, $radius)
+       {
+           $earthRadius = 6371; // Raggio approssimativo della Terra in km
 
-        return response()->json([
-            'success' => true,
-            'results' => $property,
-        ]);
-        $earthRadius = 6371; // Raggio approssimativo della Terra in km
+           $minLat = $latitude - rad2deg($radius / $earthRadius);
+           $maxLat = $latitude + rad2deg($radius / $earthRadius);
+           $minLng = $longitude - rad2deg($radius / $earthRadius / cos(deg2rad($latitude)));
+           $maxLng = $longitude + rad2deg($radius / $earthRadius / cos(deg2rad($latitude)));
 
-        $minLat = $latitude - rad2deg($radius / $earthRadius);
-        $maxLat = $latitude + rad2deg($radius / $earthRadius);
-        $minLng = $longitude - rad2deg($radius / $earthRadius / cos(deg2rad($latitude)));
-        $maxLng = $longitude + rad2deg($radius / $earthRadius / cos(deg2rad($latitude)));
-
-        return [
-            'minLat' => $minLat,
-            'maxLat' => $maxLat,
-            'minLng' => $minLng,
-            'maxLng' => $maxLng,
-        ];
-    }
+           return [
+               'minLat' => $minLat,
+               'maxLat' => $maxLat,
+               'minLng' => $minLng,
+               'maxLng' => $maxLng,
+           ];
+       }
 }
