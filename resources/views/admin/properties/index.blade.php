@@ -5,7 +5,6 @@
 	<div class="d-flex" id=wrapper>
 
 		@include('partials.sidebar')
-
 		<div id="page-content-wrapper">
 			<nav class="navbar navbar-light bg-transparent py-4 px-4">
 				<div class="d-flex align-items-center">
