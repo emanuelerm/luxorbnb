@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Offer;
 use App\Http\Requests\StoreOfferRequest;
 use App\Http\Requests\UpdateOfferRequest;
+use App\Models\Offer;
+use App\Models\Property;
+use Illuminate\Support\Facades\Auth;
 
 class OfferController extends Controller
 {
@@ -16,7 +18,9 @@ class OfferController extends Controller
      */
     public function index()
     {
-        //
+        $offers = Offer::all();
+
+        return view('admin.offers.index', compact('offers'));
     }
 
     /**
@@ -26,62 +30,54 @@ class OfferController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreOfferRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreOfferRequest $request)
     {
-        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Offer  $offer
      * @return \Illuminate\Http\Response
      */
     public function show(Offer $offer)
     {
-        //
+        $user = Auth::id();
+        $properties = Property::where('user_id', $user)->get();
+
+        return view('admin.offers.show', compact('properties'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Offer  $offer
      * @return \Illuminate\Http\Response
      */
     public function edit(Offer $offer)
     {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateOfferRequest  $request
-     * @param  \App\Models\Offer  $offer
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateOfferRequest $request, Offer $offer)
     {
-        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Offer  $offer
      * @return \Illuminate\Http\Response
      */
     public function destroy(Offer $offer)
     {
-        //
     }
 }
