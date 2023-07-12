@@ -78,7 +78,7 @@
 			<form method="POST" action="{{ route('register') }}">
 				@csrf
 
-				<h1 class="mb-4">Crea un Account</h1>
+				<h1 class="mb-2">Crea un Account</h1>
 				<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 				<input id="name" type="text" class="form-control input-style @error('name') is-invalid @enderror"
 					name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -167,10 +167,4 @@
 			</div>
 		</div>
 	</div>
-
-	<footer>
-		<p>
-			Created by Group-5
-		</p>
-	</footer>
 @endsection
