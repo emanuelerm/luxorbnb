@@ -18,8 +18,12 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $messages = $user->messages;
+        // $user = Auth::user();
+        // $messages = $user->messages;
+
+        $messages = Message::whereHas('property', function ($query) {
+            $query->where('user_id', Auth::id());
+        })->get();
 
         return view('admin.messages.index')->with('messages', $messages);
     }
@@ -51,19 +55,17 @@ class MessageController extends Controller
             'message' => 'required',
 
         ]);
-        // $user = Auth::user();
-        // $property = Property::findOrFail($id);
+
 
         $message = new Message();
         $message->title = $validatedData['title'];
         $message->email = $validatedData['email'];
         $message->message = $validatedData['message'];
-        $message->property_id = $property->id; // Assegna l'ID della proprietà
+        $message->property_id = $property->id;
         $message->user_id = Auth::id();
         $message->save();
 
-        // $property->messages()->save($message);
-        // dd($property);
+
         return redirect()->route('admin.properties.show', ['property' => $property->id])
         ->with('success', 'Messaggio inviato con successo!');
     }
@@ -108,4 +110,5 @@ class MessageController extends Controller
     public function destroy(Message $message)
     {
     }
+
 }
