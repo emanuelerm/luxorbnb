@@ -18,8 +18,12 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $messages = $user->messages;
+        // $user = Auth::user();
+        // $messages = $user->messages;
+
+        $messages = Message::whereHas('property', function ($query) {
+            $query->where('user_id', Auth::id());
+        })->get();
 
         return view('admin.messages.index')->with('messages', $messages);
     }
