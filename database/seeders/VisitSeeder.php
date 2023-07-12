@@ -22,7 +22,6 @@ class VisitSeeder extends Seeder
             $view = new Visit();
             $view->property_id = $property->id;
             $view->ip_address = $faker->ipv4;
-            $view->timestamp = $faker->dateTimeThisYear();
             $view->save();
         }
     }

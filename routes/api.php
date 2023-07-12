@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\PropertyController;
+use App\Http\Controllers\Api\VisitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,6 @@ Route::get('/properties/{slug}', [PropertyController::class, 'show']);
 
 Route::get('/messages', [MessageController::class, 'index']); // Elenco dei messaggi
 Route::post('/messages', [MessageController::class, 'store']); // Creazione di un nuovo messaggio
+
+Route::get('visits', [VisitController::class,'index']);
+Route::post('/visits', [MessageController::class, 'store']);
