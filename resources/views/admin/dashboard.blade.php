@@ -13,7 +13,7 @@
                     <div class="card-header">{{ ('User Dashboard') }}</div>
                     <div class="card-body">
                         <div>
-                            <a class="fw-bold text-dark fs-5" href="{{ route('admin.properties.create') }}">Agiungi una proprità</a>
+                            <a class="fw-bold text-dark fs-5" href="{{ route('admin.properties.create') }}">Aggiungi una proprietà</a>
                         </div>
                         @if (session('status'))
                         <div class="alert alert-success" role="alert">
