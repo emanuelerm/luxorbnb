@@ -22,10 +22,10 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::paginate(3);
         $user = Auth::user();
+        $properties = Property::where('user_id', $user)::paginate(3);
 
-        return view('admin.properties.index', compact('properties', 'user'));
+        return view('admin.properties.index', compact('properties'));
     }
 
     /**
