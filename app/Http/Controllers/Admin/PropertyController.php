@@ -22,7 +22,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
+        $user = Auth::id();
         $properties = Property::where('user_id', $user)->paginate(3);
 
         return view('admin.properties.index', compact('properties'));
