@@ -49,8 +49,8 @@
 					<div class="col-md-3">
 						<div class="p-3 card-color shadow-sm d-flex justify-content-around align-items-center rounded">
 							<div class="text-white">
-								<h3 class="fs-2">38</h3>
-								<p class="fs-5">Watch</p>
+								<h3 class="fs-2">{{ $totalVisits }}</h3>
+								<p class="fs-5">Views</p>
 							</div>
 							<i class="fa-solid fa-eye fs-1 primary-text border rounded-full secondary-bg p-3"></i>
 						</div>
@@ -81,6 +81,7 @@
 								<th scope="col">Bathrooms</th>
 								<th scope="col">Square meters</th>
 								<th scope="col">Address</th>
+                                <th scope="col">Views</th>
 								<th scope="col">Actions</th>
 							</tr>
 						</thead>
@@ -97,6 +98,7 @@
 										<td>{{ $property->bathrooms }}</td>
 										<td>{{ $property->square_meters }}</td>
 										<td>{{ $property->address }}</td>
+                                        <td>{{ $property->getVisitCount() }}</td>
 										<td>
 											<div class="d-flex flex-wrap justify-content-between align-items-center">
 												<a href="{{ route('admin.properties.show', ['property' => $property->slug]) }}"

@@ -8,6 +8,7 @@ use App\Http\Requests\UpdatePropertyRequest;
 use App\Models\Image;
 use App\Models\Property;
 use App\Models\Service;
+use App\Models\Visit;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
@@ -24,8 +25,10 @@ class PropertyController extends Controller
     {
         $properties = Property::paginate(3);
         $user = Auth::user();
+        $totalVisits = Visit::count();
 
-        return view('admin.properties.index', compact('properties', 'user'));
+
+        return view('admin.properties.index', compact('properties', 'user', 'totalVisits'));
     }
 
     /**
@@ -111,6 +114,7 @@ class PropertyController extends Controller
     {
         $services = Service::all();
         $images = Image::where('property_id', $property->id)->get();
+
         // $images = $property->images;
         return view('admin.properties.show', compact('property', 'services', 'images'));
     }

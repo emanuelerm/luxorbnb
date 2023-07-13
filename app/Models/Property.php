@@ -30,6 +30,13 @@ class Property extends Model
         return $this->hasMany(Visit::class);
     }
 
+    public function getVisitCount()
+    {
+
+    return $this->visits()->count();
+
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
