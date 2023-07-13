@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Message;
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
@@ -23,14 +24,16 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'property_id' => 'required',
+            'property_slug' => 'required',
             'title' => 'required',
             'email' => 'required|email',
             'message' => 'required',
         ]);
 
+        $property = Property::where('slug', $validatedData['property_slug'])->firstOrFail();
+
         $message = new Message();
-        $message->property_id = $validatedData['property_id'];
+        $message->property_id = $property->id;
         $message->title = $validatedData['title'];
         $message->email = $validatedData['email'];
         $message->message = $validatedData['message'];
