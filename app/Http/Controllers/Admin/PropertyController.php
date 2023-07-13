@@ -23,7 +23,7 @@ class PropertyController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $properties = Property::where('user_id', $user)::paginate(3);
+        $properties = Property::where('user_id', $user)->paginate(3);
 
         return view('admin.properties.index', compact('properties'));
     }
@@ -36,7 +36,7 @@ class PropertyController extends Controller
     public function create()
     {
         $services = Service::all();
-        // $images = Image::all();
+
         return view('admin.properties.create', compact('services'));
     }
 
