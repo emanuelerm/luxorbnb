@@ -17,7 +17,7 @@ class VisitSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $property = Property::inRandomOrder()->first();
             $view = new Visit();
             $view->property_id = $property->id;

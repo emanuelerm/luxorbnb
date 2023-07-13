@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\PropertyController;
 use App\Http\Controllers\Api\VisitController;
+use App\Models\Visit;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,4 +24,4 @@ Route::get('/messages', [MessageController::class, 'index']); // Elenco dei mess
 Route::post('/messages', [MessageController::class, 'store']); // Creazione di un nuovo messaggio
 
 Route::get('visits', [VisitController::class,'index']);
-Route::post('/visits', [MessageController::class, 'store']);
+Route::post('/visits', [VisitController::class, 'store']);
