@@ -16,7 +16,7 @@ class VisitController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**

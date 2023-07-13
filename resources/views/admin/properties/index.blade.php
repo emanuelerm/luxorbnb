@@ -13,7 +13,7 @@
 				</div>
 
 				<div class="">
-					<a class="btn btn-dashboard text-white" href="http://localhost:5173/"> Go to frontend</a>
+					<a class="btn btn-dashboard text-white" href="http://localhost:5174/"> Go to frontend</a>
 					<a class="btn btn-dashboard text-white" href="{{ route('admin.properties.create') }}">Create new property</a>
 				</div>
 
