@@ -87,7 +87,6 @@
 						</thead>
 						<tbody>
 							@foreach ($properties as $property)
-								@if ($property->user_id == $user->id)
 									<tr>
 										{{-- <th scope="row">{{ $property->id }}</th>
 										<td>{{ $property->user_id }}</td> --}}
@@ -119,7 +118,6 @@
 											</div>
 										</td>
 									</tr>
-								@endif
 							@endforeach
 						</tbody>
 					</table>
