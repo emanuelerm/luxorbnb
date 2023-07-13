@@ -1,30 +1,31 @@
-let form = document.querySelector("#dropin-container");
+var form = document.querySelector('#payment-form');
+var nonceInput = document.querySelector('#nonce');
 
-braintree.dropin.create(
-    {
-        authorization: "{!! $clientToken !!}",
-        container: "#dropin-container",
-    },
-    function (createErr, instance) {
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
+braintree.dropin.create({
+	authorization: '{{ $clientToken}}',
+	container: '#dropin-container'
+}, function (err, dropinInstance) {
+	if (err) {
+	// Handle any errors that might've occurred when creating Drop-in
+	console.error(err);
+	return;
+	}
+	form.addEventListener('submit', function (event) {
+	event.preventDefault();
 
-            instance.requestPaymentMethod(function (err, payload) {
-                if (err) {
-                    console.log("Error", err);
-                    return;
-                }
+	dropinInstance.requestPaymentMethod(function (err, payload) {
+		if (err) {
+		// Handle errors in requesting payment method
+			console.log(result);
+			$('#checkout-message').html(`<h1>Qualcosa è andato storto</h1><p>Controlla di aver inserito correttamente i dati della carta.</p><p>Se hai inserito correttamente i dati e il credito sulla carta è sufficiente (ad esempio se stai utilizzando una ricaricabile) allora puoi provare a contattare il servizio clienti.</p><p class="transaction-error">Errore: <span>${result.results.message}</span></p>`);
+		return;
+		}
 
-                // Invia il payload al tuo server per processare il pagamento
-                // Esempio di richiesta Ajax
-
-                let nonceInput = document.createElement("input");
-                nonceInput.setAttribute("type", "hidden");
-                nonceInput.setAttribute("name", "payment_method_nonce");
-                nonceInput.setAttribute("value", payload.nonce);
-                form.appendChild(nonceInput);
-                form.submit();
-            });
-        });
-    }
-);
+		// Send payload.nonce to your server
+		nonceInput.value = payload.nonce;
+		form.submit();
+		let submitButton = document.getElementByID('submit-button');
+		submitButton.classList.add('d-none');
+	});
+	});
+});
