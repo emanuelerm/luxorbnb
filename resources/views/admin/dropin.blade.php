@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-	@vite('resources/scss/partials/dropin.scss', 'resources/js/dropin.js')
+	@vite(['resources/scss/partials/dropin.scss', 'resources/js/dropin.js'])
 	<form id="payment-form" action="{{ route('admin.process-payment') }}" method="post" autocomplete="off">
 		@csrf
 
