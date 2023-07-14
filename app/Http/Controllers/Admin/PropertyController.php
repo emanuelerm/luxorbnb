@@ -8,10 +8,12 @@ use App\Http\Requests\UpdatePropertyRequest;
 use App\Models\Image;
 use App\Models\Property;
 use App\Models\Service;
+use App\Models\Visit;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class PropertyController extends Controller
 {
@@ -111,8 +113,19 @@ class PropertyController extends Controller
     {
         $services = Service::all();
         $images = Image::where('property_id', $property->id)->get();
+
+        $allVisits = Visit::where('property_id', $property->id)->get();
+        $visitsLast7Days = Visit::where('property_id', $property->id)
+        ->where('created_at', '>=', Carbon::now()->subDays(7))
+        ->get();
+        $visitsLast30Days = Visit::where('property_id', $property->id)
+        ->where('created_at', '>=', Carbon::now()->subDays(30))
+        ->get();
+        $visitsLast365Days = Visit::where('property_id', $property->id)
+        ->where('created_at', '>=', Carbon::now()->subDays(365))
+        ->get();
         // $images = $property->images;
-        return view('admin.properties.show', compact('property', 'services', 'images'));
+        return view('admin.properties.show', compact('property', 'services', 'images', 'allVisits', 'visitsLast7Days', 'visitsLast30Days', 'visitsLast365Days'));
     }
 
     /**
