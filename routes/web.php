@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -36,8 +37,8 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     // Route::post('/messages', [MessageController::class, 'index']);
     Route::get('/admin/properties/{property}', [PropertyController::class, 'show'])->name('admin.properties.show');
 
-
-
+    Route::get('/payment/token', [PaymentController::class, 'generateToken'])->name('generate-token');
+    Route::post('/payment/process', [PaymentController::class, 'processPayment'])->name('process-payment');
 });
 
 require __DIR__.'/auth.php';
