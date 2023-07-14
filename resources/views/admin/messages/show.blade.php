@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+
     <h1>Dettagli Messaggio</h1>
 
     <div class="message">
@@ -9,6 +11,10 @@
         <p>{{ $message->message }}</p>
         <p>{{ $message->created_at }}</p>
 
-    </div>
-
+    
+</div>
 @endsection
+
+<style>
+    
+</style>
