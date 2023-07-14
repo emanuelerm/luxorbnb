@@ -109,8 +109,7 @@
 												<form action="{{ route('admin.properties.destroy', $property->slug) }}" method="POST">
 													@csrf
 													@method('DELETE')
-													<button type='submit' class="delete-button btn btn-danger text-white"
-														data-item-title="{{ $property->name }}">
+													<button type='submit' class="delete-button btn btn-danger text-white" data-item-title="{{ $property->name }}">
 														<i class="fa-solid fa-trash"></i>
 													</button>
 												</form>
