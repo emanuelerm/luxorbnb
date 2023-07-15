@@ -86,7 +86,9 @@ class PaymentController extends Controller
             return redirect()->route('admin.properties.index');
         } else {
             // Il pagamento ha avuto un errore
-            return 'Errore durante il pagamento: '.$result->message;
+            $errorMessage = 'Errore durante il pagamento: ' . $result->message;
+            Session::flash('error_message', $errorMessage);
+            return redirect()->route('admin.properties.index');
         }
     }
 }

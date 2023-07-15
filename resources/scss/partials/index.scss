@@ -13,6 +13,17 @@
 	opacity: 0;
 	transform: translate(2500px, 0);
  }
+
+ .payment-error-not {
+	opacity: 1;
+	margin-right: 0;
+ }
+ 
+ .payment-error-hidden {
+	opacity: 0;
+	transform: translate(1200px, 0);
+ }
+
  .description-cell {
 	max-width: 200px;
 	overflow: hidden;

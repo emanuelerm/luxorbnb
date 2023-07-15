@@ -126,12 +126,16 @@
 				{{ $properties->links('vendor.pagination.bootstrap-4') }}
 			</div>
 			@if (Session::has('success_message'))
-			<div id="payment-success" class="alert alert-success payment-success-not">
-				{{ Session::get('success_message') }}
-			</div>
-		@endif
+				<div id="payment-success" class="alert alert-success payment-success-not">
+					{{ Session::get('success_message') }}
+				</div>
+			@endif
+			@if (Session::has('error_message'))
+				<div id="payment-error" class="alert alert-error payment-error-not>
+					{{ Session::get('error_message') }}
+				</div>
+			@endif
 		</div>
 	</div>
 	@include('partials.modal-delete')
 @endsection
-
