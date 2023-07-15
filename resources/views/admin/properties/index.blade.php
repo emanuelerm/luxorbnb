@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 	@include('partials.modal-delete')
-	@vite('resources/js/modal.js')
+	@vite(['resources/js/modal.js', 'resources/scss/partials/index.scss', 'resources/js/index.js'])
 	<div class="d-flex" id=wrapper>
 
 		@include('partials.sidebar')
@@ -13,8 +13,9 @@
 				</div>
 
 				<div class="">
-                    <a class="btn btn-dashboard text-white text-capitalize" href="{{route('admin.generate-token')}}">sponsor your properties</a>
-                    <a class="btn btn-dashboard text-white" href="http://localhost:5174/"> Go to frontend</a>
+					<a class="btn btn-dashboard text-white text-capitalize" href="{{ route('admin.generate-token') }}">sponsor your
+						properties</a>
+					<a class="btn btn-dashboard text-white" href="http://localhost:5174/"> Go to frontend</a>
 					<a class="btn btn-dashboard text-white" href="{{ route('admin.properties.create') }}">Create new property</a>
 				</div>
 
@@ -87,51 +88,54 @@
 						</thead>
 						<tbody>
 							@foreach ($properties as $property)
-									<tr>
-										{{-- <th scope="row">{{ $property->id }}</th>
+								<tr>
+									{{-- <th scope="row">{{ $property->id }}</th>
 										<td>{{ $property->user_id }}</td> --}}
-										<td>{{ $property->title }}</td>
-										<td class="description-cell">{{ $property->description }}</td>
-										<td>{{ $property->rooms }}</td>
-										<td>{{ $property->beds }}</td>
-										<td>{{ $property->bathrooms }}</td>
-										<td>{{ $property->square_meters }}</td>
-										<td>{{ $property->address }}</td>
-										<td>
-											<div class="d-flex flex-wrap justify-content-between align-items-center">
-												<a href="{{ route('admin.properties.show', ['property' => $property->slug]) }}"
-													class="btn btn-primary text-white mb-2">
-													<i class="fa-regular fa-eye me-1"></i>
-												</a>
-												<a href="{{ route('admin.properties.edit', ['property' => $property->slug]) }}"
-													class="btn btn-warning text-white mb-2">
-													<i class="fa-regular fa-pen-to-square me-1"></i>
-												</a>
-												<form action="{{ route('admin.properties.destroy', $property->slug) }}" method="POST">
-													@csrf
-													@method('DELETE')
-													<button type='submit' class="delete-button btn btn-danger text-white" data-item-title="{{ $property->name }}">
-														<i class="fa-solid fa-trash"></i>
-													</button>
-												</form>
-											</div>
-										</td>
-									</tr>
+									<td>{{ $property->title }}</td>
+									<td class="description-cell">{{ $property->description }}</td>
+									<td>{{ $property->rooms }}</td>
+									<td>{{ $property->beds }}</td>
+									<td>{{ $property->bathrooms }}</td>
+									<td>{{ $property->square_meters }}</td>
+									<td>{{ $property->address }}</td>
+									<td>
+										<div class="d-flex flex-wrap justify-content-between align-items-center">
+											<a href="{{ route('admin.properties.show', ['property' => $property->slug]) }}"
+												class="btn btn-primary text-white mb-2">
+												<i class="fa-regular fa-eye me-1"></i>
+											</a>
+											<a href="{{ route('admin.properties.edit', ['property' => $property->slug]) }}"
+												class="btn btn-warning text-white mb-2">
+												<i class="fa-regular fa-pen-to-square me-1"></i>
+											</a>
+											<form action="{{ route('admin.properties.destroy', $property->slug) }}" method="POST">
+												@csrf
+												@method('DELETE')
+												<button type='submit' class="delete-button btn btn-danger text-white"
+													data-item-title="{{ $property->name }}">
+													<i class="fa-solid fa-trash"></i>
+												</button>
+											</form>
+										</div>
+									</td>
+								</tr>
 							@endforeach
 						</tbody>
 					</table>
 				</div>
 				{{ $properties->links('vendor.pagination.bootstrap-4') }}
 			</div>
+			@if (Session::has('success_message'))
+				<div id="payment-success" class="alert alert-success payment-success-not">
+					{{ Session::get('success_message') }}
+				</div>
+			@endif
+			@if (Session::has('error_message'))
+				<div id="payment-error" class="alert alert-danger payment-error-not">
+					{{ Session::get('error_message') }}
+				</div>
+			@endif
 		</div>
 	</div>
 	@include('partials.modal-delete')
 @endsection
-<style>
-	.description-cell {
-		max-width: 200px;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	}
-</style>
