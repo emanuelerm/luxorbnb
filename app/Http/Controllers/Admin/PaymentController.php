@@ -9,6 +9,8 @@ use Braintree;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 class PaymentController extends Controller
 {
@@ -78,9 +80,10 @@ class PaymentController extends Controller
                     ]);
                 }
             }
-
+            $message = 'Pagamento completato con successo!';
+            Session::flash('success_message', $message);
             // Restituisci una risposta appropriata all'utente
-            return 'Pagamento completato con successo!';
+            return redirect()->route('admin.properties.index');
         } else {
             // Il pagamento ha avuto un errore
             return 'Errore durante il pagamento: '.$result->message;
