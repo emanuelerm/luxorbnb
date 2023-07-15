@@ -6,8 +6,8 @@
             @include('partials.sidebar')
             @vite('resources/scss/partials/show.scss')
             <div class="container CPM max-100">
-                <div class="d-flex justify-content-center align-items-center gap-4 ">
-                    <div class="card w-50  mx-auto mt-3">
+                <div class="d-flex justify-content-center align-items-center gap-4 wrap-2">
+                    <div class="card w-50 card-media  mx-auto mt-3">
                         @if ($images->count() > 0)
                             <div id="imageCarousel" class="carousel slide card-image" data-bs-ride="carousel">
                                 <div class="carousel-inner">

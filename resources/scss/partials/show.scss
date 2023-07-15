@@ -161,6 +161,18 @@ label .fa {
   }
 }
 
+@media only screen and (max-width: 1200px){
+    .wrap-2{
+    flex-wrap: wrap !important;
+  }
+}
+
+@media only screen and (max-width: 1185px){
+    .card-media{
+        width: 80% !important;
+    }
+}
+
 /*Content Animation*/
 @keyframes fadeInScale {
   0% {
