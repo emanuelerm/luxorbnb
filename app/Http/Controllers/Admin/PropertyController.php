@@ -9,6 +9,7 @@ use App\Models\Image;
 use App\Models\Property;
 use App\Models\Service;
 use App\Models\Visit;
+use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
@@ -114,7 +115,6 @@ class PropertyController extends Controller
         $services = Service::all();
         $images = Image::where('property_id', $property->id)->get();
 
-        $allVisits = Visit::where('property_id', $property->id)->get();
         $visitsLast7Days= Visit::where('property_id', $property->id)
         ->where('created_at', '>=', Carbon::now()->subDays(7))
         ->get();
@@ -125,8 +125,23 @@ class PropertyController extends Controller
         ->where('created_at', '>=', Carbon::now()->subDays(365))
         ->get();
         $visit7 = $visitsLast7Days->count();
+        $visit30 = $visitsLast30Days->count();
+        $visit365 = $visitsLast365Days->count();
+
+        $messagesLast7Days= Message::where('property_id', $property->id)
+        ->where('created_at', '>=', Carbon::now()->subDays(7))
+        ->get();
+        $messagesLast30Days = Message::where('property_id', $property->id)
+        ->where('created_at', '>=', Carbon::now()->subDays(30))
+        ->get();
+        $messagesLast365Days = Message::where('property_id', $property->id)
+        ->where('created_at', '>=', Carbon::now()->subDays(365))
+        ->get();
+        $message7 = $messagesLast7Days->count();
+        $message30 = $messagesLast30Days->count();
+        $message365 = $messagesLast365Days->count();
         // $images = $property->images;
-        return view('admin.properties.show', compact('property', 'services', 'images', 'allVisits', 'visit7', 'visitsLast30Days', 'visitsLast365Days'));
+        return view('admin.properties.show', compact('property', 'services', 'images', 'visit7', 'visit30', 'visit365', 'message7', 'message30', 'message365'));
     }
 
     /**
