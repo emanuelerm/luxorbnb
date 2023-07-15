@@ -2,7 +2,14 @@
 	transition: opacity 0.6s linear, transform 0.3s linear;
 	width: 400px;
 	height: 90px;
+	margin-left: 1rem;
 
+ }
+#payment-error {
+	transition: opacity 0.6s linear, transform 0.3s linear;
+	width: 400px;
+	height: 90px;
+	margin-left: 1rem;
  }
 
  .payment-success-not{

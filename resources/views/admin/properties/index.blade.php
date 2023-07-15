@@ -131,7 +131,7 @@
 				</div>
 			@endif
 			@if (Session::has('error_message'))
-				<div id="payment-error" class="alert alert-error payment-error-not>
+				<div id="payment-error" class="alert alert-danger payment-error-not">
 					{{ Session::get('error_message') }}
 				</div>
 			@endif
