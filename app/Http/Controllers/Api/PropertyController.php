@@ -98,4 +98,17 @@ class PropertyController extends Controller
                'maxLng' => $maxLng,
            ];
        }
+       public function offers()
+       {
+           $offers = Property::with('images', 'services')
+               ->whereHas('offers', function ($query) {
+                   $query->where('expired', false);
+               })
+               ->get();
+
+           return response()->json([
+               'success' => true,
+               'offers' => $offers,
+           ], 200);
+       }
 }

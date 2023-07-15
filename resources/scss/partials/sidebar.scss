@@ -94,6 +94,9 @@
     #wrapper.toggled #sidebar-wrapper {
         margin-left: -15rem;
     }
+    #sidebar-wrapper .sidebar-heading{
+        padding: 5px ;
+    }
 }
 
 @media (min-width: 562px) {
@@ -109,4 +112,12 @@
     #wrapper.toggled #sidebar-wrapper {
         margin-left: -15rem;
     }
+    #sidebar-wrapper .sidebar-heading{
+        padding: 0px ;
+
+    }
+    h4 {
+          font-size: 20px;
+        }
+
 }

@@ -1,8 +1,9 @@
 <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
     <div class="bg-sidebar" id="sidebar-wrapper">
-        <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
-                class="fas fa-user-secret me-2"></i>Luxor BnB</div>
+        <div class="sidebar-heading py-4 primary-text d-flex text-uppercase border-bottom"><i
+                class="fas fa-user-secret fs-4 mx-2 ps-2"></i><h4 class="fw-bold">Luxor BnB</h4>
+            </div>
         <div class="list-group list-group-flush my-3">
 
             <a href="{{ url('/admin') }}"
