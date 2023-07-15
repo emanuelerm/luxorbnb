@@ -29,3 +29,49 @@
     background-color: #8bdda8;
     color: white;
 }
+
+#offers {
+    height: 15rem;
+}
+
+.card {
+    border: transparent;
+
+    .card-img {
+        min-width: 45%;
+        width: 45%;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: auto;
+            border-top-left-radius: 0.375rem;
+            border-bottom-left-radius: 0.375rem;
+        }
+    }
+
+    input {
+        bottom: 5px;
+        right: 5px;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.bronze {
+    background-color: #cd7f32;
+}
+
+.silver {
+    background-color: #c0c0c0;
+}
+
+.gold {
+    background-color: #ffd700;
+}
+
+.cust {
+    height: 469.188px;
+}

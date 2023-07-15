@@ -13,7 +13,8 @@
 				</div>
 
 				<div class="">
-					<a class="btn btn-dashboard text-white" href="http://localhost:5174/"> Go to frontend</a>
+                    <a class="btn btn-dashboard text-white text-capitalize" href="{{route('admin.generate-token')}}">sponsor your properties</a>
+                    <a class="btn btn-dashboard text-white" href="http://localhost:5174/"> Go to frontend</a>
 					<a class="btn btn-dashboard text-white" href="{{ route('admin.properties.create') }}">Create new property</a>
 				</div>
 

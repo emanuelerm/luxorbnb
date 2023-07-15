@@ -17,7 +17,7 @@ class PropertyController extends Controller
         $bedsMin = $request->query('beds_min');
         $radius = $request->query('radius');
 
-        $properties = Property::with('services', 'images');
+        $properties = Property::with('services', 'images', 'offers');
         if (!empty($service_id)) {
             $properties->whereHas('services', function ($query) use ($service_id) {
                 $query->where('services.id', $service_id);
