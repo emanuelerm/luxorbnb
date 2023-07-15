@@ -115,7 +115,7 @@ class PropertyController extends Controller
         $images = Image::where('property_id', $property->id)->get();
 
         $allVisits = Visit::where('property_id', $property->id)->get();
-        $visitsLast7Days = Visit::where('property_id', $property->id)
+        $visitsLast7Days= Visit::where('property_id', $property->id)
         ->where('created_at', '>=', Carbon::now()->subDays(7))
         ->get();
         $visitsLast30Days = Visit::where('property_id', $property->id)
@@ -124,8 +124,9 @@ class PropertyController extends Controller
         $visitsLast365Days = Visit::where('property_id', $property->id)
         ->where('created_at', '>=', Carbon::now()->subDays(365))
         ->get();
+        $visit7 = $visitsLast7Days->count();
         // $images = $property->images;
-        return view('admin.properties.show', compact('property', 'services', 'images', 'allVisits', 'visitsLast7Days', 'visitsLast30Days', 'visitsLast365Days'));
+        return view('admin.properties.show', compact('property', 'services', 'images', 'allVisits', 'visit7', 'visitsLast30Days', 'visitsLast365Days'));
     }
 
     /**

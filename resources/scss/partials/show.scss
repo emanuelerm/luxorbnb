@@ -49,6 +49,12 @@ main {
 	box-sizing: border-box;
 }
 
+
+
+.max-100{
+    max-height: calc(100vh - 100px);
+}
+
 .clearfix:before,
 .clearfix:after {
 	content: " ";
@@ -67,6 +73,10 @@ body {
 h1 {
 	color: #ccc;
 	text-align: center;
+}
+
+.CPM{
+    overflow-y: auto;
 }
 
 a {
