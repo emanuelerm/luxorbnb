@@ -76,6 +76,14 @@ class MessageController extends Controller
         return view('admin.messages.show', compact('message', 'property'));
     }
 
+    public function destroy(Message $message)
+    {
+        $message->delete();
+
+        return redirect()->route('admin.messages.index')->with('message', "{$message->title} è stato cancellato correttamente");
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -99,7 +107,5 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
-    {
-    }
+    
 }
