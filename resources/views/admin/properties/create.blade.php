@@ -54,7 +54,7 @@
 								<div class="m-4 d-flex align-items-center row ">
 									<label class="text-uppercase fw-bold" for="description">description *</label>
 
-									<div class="col-md-4">
+									<div class="col-md-6">
 
 										<textarea name="description" id="description" cols="30" rows="7"
 										 class="form-control @error('description') is-invalid @enderror" value="{{ old('address') }}" required></textarea>

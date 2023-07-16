@@ -113,7 +113,7 @@
 					<span id="wrong-password" class="invalid-feedback" role="alert">
 						<strong class="text-danger"></strong>
 					</span>
-				<label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Date_of_birth') }}<span class="advertise-2"> *</span></label>
+				<label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Date of birth') }}<span class="advertise-2"> *</span></label>
 				<input id="date_of_birth" type="date"
 					class="form-control mb-4 input-style @error('date_of_birth') is-invalid @enderror" name="date_of_birth"
 					value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth" autofocus>
