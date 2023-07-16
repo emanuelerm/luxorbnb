@@ -31,13 +31,20 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'surname' => ['required', 'string', 'min:3', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'date_of_birth' => ['required', 'date'],
         ],[
             'password.confirmed' => 'Le password alla registrazione non coincidono, inserisci due password uguali!!',
+            'name.required' => 'Il campo del nome è obbligatorio',
+            'name.min' => 'Il nome deve contenere almeno 3 caratteri',
+            'surname.min' => 'Il cognome deve contenere almeno 3 caratteri',
+            'surname.required' => 'Ilcampo del cognome è obbligatorio',
+            'email.required' => 'Il campo email è obbligatorio',
+            'password.required' => 'Il campo password è obbligatorio',
+            'date_of_birth' => 'La data di nascita è obbligatoria'
         ]);
 
         $user = User::create([

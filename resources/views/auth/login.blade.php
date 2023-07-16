@@ -79,7 +79,8 @@
 				@csrf
 
 				<h1 class="mb-2">Crea un Account</h1>
-				<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                <span class="advertise">I campi con * sono obbligatori</span>
+				<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}<span class="advertise-2"> *</span></label>
 				<input id="name" type="text" class="form-control input-style @error('name') is-invalid @enderror"
 					name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 				@error('name')
@@ -87,7 +88,7 @@
 						<strong>{{ $message }}</strong>
 					</span>
 				@enderror
-				<label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
+				<label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}<span class="advertise-2"> *</span></label>
 				<input id="surname" type="text" class="form-control input-style @error('surname') is-invalid @enderror"
 					name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
 				@error('surname')
@@ -95,7 +96,7 @@
 						<strong>{{ $message }}</strong>
 					</span>
 				@enderror
-				<label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+				<label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}<span class="advertise-2"> *</span></label>
 				<input id="email" type="email" class="form-control input-style @error('email') is-invalid @enderror"
 					name="email" value="{{ old('email') }}" required autocomplete="email">
 				@error('email')
@@ -103,16 +104,16 @@
 						<strong>{{ $message }}</strong>
 					</span>
 				@enderror
-				<label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+				<label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}<span class="advertise-2"> *</span></label>
 				<input id="password" type="password" class="form-control input-style @error('password') is-invalid @enderror"
 					name="password" required autocomplete="new-password">
-				<label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+				<label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}<span class="advertise-2"> *</span></label>
 				<input id="password-confirm" type="password" class="form-control input-style" name="password_confirmation" required
 					autocomplete="new-password">
 					<span id="wrong-password" class="invalid-feedback" role="alert">
 						<strong class="text-danger"></strong>
 					</span>
-				<label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Date_of_birth') }}</label>
+				<label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Date_of_birth') }}<span class="advertise-2"> *</span></label>
 				<input id="date_of_birth" type="date"
 					class="form-control mb-4 input-style @error('date_of_birth') is-invalid @enderror" name="date_of_birth"
 					value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth" autofocus>
